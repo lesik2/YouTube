@@ -10,6 +10,7 @@ const baseConfig = {
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
+    mode: 'development',
     module: {
         rules: [
             {
@@ -25,11 +26,7 @@ const baseConfig = {
             },
             {
                 test: /\.(png|jp(e*)g|svg|gif|ttf|woff|woff2)$/,
-                use: ['file-loader'],
-            },
-            {
-                test: /\.svg$/,
-                use: ['@svgr/webpack'],
+                type: 'asset/resource',
             },
             {
                 test: /\.(ts|tsx)$/,
