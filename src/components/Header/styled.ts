@@ -34,6 +34,7 @@ export const SearchButton = styled.button`
     border: 1px solid #c4c4c4;
     outline: none;
     background: #ffffff;
+    cursor: pointer;
 `;
 export const SearchInput = styled.input`
     width: 570px;
