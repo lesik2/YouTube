@@ -10,8 +10,8 @@ import {
     ToggleThemeLabel,
     Wrapper,
 } from './styled';
-import labelIcon from '../../assets/images/labelIcon.svg';
-import searchIcon from '../../assets/images/searchIcon.svg';
+import labelIcon from '../../assets/icons/labelIcon.svg';
+import searchIcon from '../../assets/icons/searchIcon.svg';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeTheme } from '../../store/reducers/ThemeSlice';
 const Header: React.FC = () => {
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         dispatch(changeTheme());
     };
     return (
-        <Wrapper $DarkTheme={isDarkTheme}>
+        <Wrapper>
             <LogoWrapper>
                 <img src={labelIcon} alt="modsen film logo" />
                 <LogoTitle>ModsenFilms</LogoTitle>

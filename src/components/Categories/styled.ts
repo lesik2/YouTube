@@ -24,6 +24,10 @@ export const AllFilmsLink = styled.a<{ $active?: boolean }>`
     user-select: none;
     background: ${(props) => (props.$active ? '#000000' : 'rgba(0, 0, 0, 0.06)')};
     color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+    &:hover {
+        color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+        text-decoration: none;
+    }
 `;
 export const CategoryLink = styled.a<{ $active?: boolean }>`
     display: flex;
@@ -41,4 +45,8 @@ export const CategoryLink = styled.a<{ $active?: boolean }>`
     user-select: none;
     background: ${(props) => (props.$active ? '#000000' : 'rgba(0, 0, 0, 0.06)')};
     color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+    &:hover {
+        color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+        text-decoration: none;
+    }
 `;

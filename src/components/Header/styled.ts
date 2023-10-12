@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
+export const Wrapper = styled.section`
     padding: 0px 8px;
     display: flex;
     align-items: center;
     min-height: 68px;
     justify-content: space-between;
-    background: ${(props) => (props.$DarkTheme ? '#4d4d4d' : '#ffffff')};
 `;
 export const LogoWrapper = styled.div`
     display: flex;

@@ -1,13 +1,17 @@
 import React from 'react';
 import Header from '../components/Header/index';
 import Categories from '../components/Categories/index';
+import FilmsContainer from '../components/FilmsContainer/index';
+import { useAppSelector } from '../hooks/redux';
+import { Wrapper } from './styled';
 
 const MainPage: React.FC = () => {
+    const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     return (
-        <>
+        <Wrapper $DarkTheme={isDarkTheme}>
             <Header />
             <Categories />
-        </>
+        </Wrapper>
     );
 };
 export default MainPage;
