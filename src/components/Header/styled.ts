@@ -34,6 +34,13 @@ export const SearchButton = styled.button`
     outline: none;
     background: #ffffff;
     cursor: pointer;
+    transition:
+        background 0.1s,
+        border 0.1s;
+    &:hover {
+        background: #f0f0f0;
+        border: 2px solid #c4c4c4;
+    }
 `;
 export const SearchInput = styled.input`
     width: 570px;
@@ -50,6 +57,10 @@ export const SearchInput = styled.input`
         font-style: normal;
         line-height: normal;
     }
+    &:focus {
+        border: 1px solid #ff8a00;
+        box-shadow: inset 0px 0px 2px #ff8a00;
+    }
 `;
 export const ToggleTheme = styled.input`
     display: none;
@@ -64,6 +75,7 @@ export const ToggleThemeLabel = styled.label`
     border-radius: 50px;
     border: 2px solid #ff8a00;
     position: relative;
+    cursor: pointer;
 `;
 export const ThemeBowl = styled.div`
     background: #ffffff;

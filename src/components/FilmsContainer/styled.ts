@@ -27,4 +27,12 @@ export const Button = styled.button`
     border: none;
     border-radius: 10px;
     text-align: center;
+    cursor: pointer;
+    transition:
+        background 0.1s,
+        border-radius 0.1s;
+    &:hover {
+        background: #e67a00;
+        border-radius: 0px;
+    }
 `;

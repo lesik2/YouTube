@@ -11,6 +11,14 @@ export const ImageFilmWrapper = styled.div<{ $image?: string }>`
     height: 186px;
     background: url(${(props) => props.$image}) no-repeat;
     background-size: cover;
+    transition:
+        transform 0.2s,
+        border-radius 0.2s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.07);
+        border-radius: 12px;
+    }
 `;
 export const FilmInfoWrapper = styled.div`
     display: flex;
