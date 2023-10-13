@@ -8,7 +8,7 @@ export const FilmAPI = createApi({
             query: (limit: number = 16) => ({
                 url: '',
                 headers: {
-                    'X-RapidAPI-Key': '09aa243800mshd807ebe4ccdf6fcp1824bejsne6d06447657f',
+                    'X-RapidAPI-Key': 'd18637c0c5msh588b83e7e66453cp12d19ajsna5f8204d2159',
                     'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
                 },
                 params: {

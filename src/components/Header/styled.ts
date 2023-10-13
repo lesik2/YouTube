@@ -11,8 +11,8 @@ export const LogoWrapper = styled.div`
     align-items: center;
     gap: 6px;
 `;
-export const LogoTitle = styled.h2`
-    color: #000;
+export const LogoTitle = styled.h2<{ $DarkTheme?: boolean }>`
+    color: ${(props) => (props.$DarkTheme ? '#ffffff' : '#000000')};
     font-family: bold;
     font-size: 18px;
     font-style: normal;

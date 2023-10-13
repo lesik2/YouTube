@@ -13,20 +13,24 @@ import facebook from '../../assets/icons/facebook.svg';
 import twitter from '../../assets/icons/twitter.svg';
 import instagram from '../../assets/icons/instagram.svg';
 import linkedin from '../../assets/icons/linkedIn.svg';
+import { useAppSelector } from '../../hooks/redux';
 
 const Footer = () => {
+    const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     return (
-        <Wrapper>
+        <Wrapper $DarkTheme={isDarkTheme}>
             <WrapperInfo>
                 <WrapperText>
-                    <TextLeft>
+                    <TextLeft $DarkTheme={isDarkTheme}>
                         TermsPrivacyPolicy & Safety
                         <br /> How YouTube works
                         <br /> Test new features
                     </TextLeft>
-                    <TextRight>About Press Copyright Contact us Creators Advertise Developers</TextRight>
+                    <TextRight $DarkTheme={isDarkTheme}>
+                        About Press Copyright Contact us Creators Advertise Developers
+                    </TextRight>
                 </WrapperText>
-                <FooterText>2023 Modsen company</FooterText>
+                <FooterText $DarkTheme={isDarkTheme}>2023 Modsen company</FooterText>
                 <WrapperLinks>
                     <ImageWrapper>
                         <img alt="facebook" src={facebook} />

@@ -7,6 +7,7 @@ import { changeCategory } from '../../store/reducers/CategorySlice';
 const Categories: React.FC = () => {
     const { data: categories, error, isLoading } = CategoryAPI.useFetchAllCategoriesQuery('genre');
     const categoryState = useAppSelector((state) => state.categoryReducer.category);
+    const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const dispatch = useAppDispatch();
     const handleClick = (event: React.MouseEvent) => {
         const nameOfCategory: string | null = event.currentTarget.textContent;
@@ -15,7 +16,7 @@ const Categories: React.FC = () => {
         }
     };
     return (
-        <Wrapper>
+        <Wrapper $DarkTheme={isDarkTheme}>
             {isLoading &&
                 Array(7)
                     .fill('')

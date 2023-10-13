@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
     Author,
     AuthorYear,
@@ -17,24 +17,26 @@ interface IFilmComponent {
     director: string[];
     title: string;
 }
+import { useAppSelector } from '../../hooks/redux';
 const Film: React.FC<IFilmComponent> = ({ image, year, director, title }) => {
-    const getRandomIcon = () => {
+    const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
+    const getRandomIcon = useMemo(() => {
         const imageList = images.keys().map((image) => images(image));
         const random = Math.floor(Math.random() * imageList.length);
         return imageList[random];
-    };
+    }, [image, year, director, title]);
     return (
         <Wrapper>
             <ImageFilmWrapper $image={image} />
             <FilmInfoWrapper>
                 <ImageAccountWrapper>
-                    <img src={getRandomIcon()} alt="icon of account" />
+                    <img src={getRandomIcon} alt="icon of account" />
                 </ImageAccountWrapper>
                 <FilmInfo>
-                    <FilmName>{title}</FilmName>
+                    <FilmName $DarkTheme={isDarkTheme}>{title}</FilmName>
                     <AuthorYear>
-                        <Author>{director[0]} • </Author>
-                        <Year>{year}</Year>
+                        <Author $DarkTheme={isDarkTheme}>{director[0]} • </Author>
+                        <Year $DarkTheme={isDarkTheme}>{year}</Year>
                     </AuthorYear>
                 </FilmInfo>
             </FilmInfoWrapper>

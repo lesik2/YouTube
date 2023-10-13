@@ -8,7 +8,7 @@ export const CategoryAPI = createApi({
             query: (genre: string = 'genre') => ({
                 url: '/getParams',
                 headers: {
-                    'X-RapidAPI-Key': 'a674e084bfmsh071d9ba6a80f163p1a7588jsn65e0737cda00',
+                    'X-RapidAPI-Key': 'd18637c0c5msh588b83e7e66453cp12d19ajsna5f8204d2159',
                     'X-RapidAPI-Host': 'ott-details.p.rapidapi.com',
                 },
                 params: {

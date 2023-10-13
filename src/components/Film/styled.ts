@@ -35,8 +35,8 @@ export const FilmInfo = styled.div`
     height: 58px;
     margin: 13px 24px 13px 48px;
 `;
-export const FilmName = styled.h3`
-    color: #000;
+export const FilmName = styled.h3<{ $DarkTheme?: boolean }>`
+    color: ${(props) => (props.$DarkTheme ? '#ffffff' : '#000')};
     font-size: 16px;
     font-style: normal;
     line-height: 18px;
@@ -47,16 +47,16 @@ export const AuthorYear = styled.div`
     display: flex;
     align-item: center;
 `;
-export const Author = styled.p`
+export const Author = styled.p<{ $DarkTheme?: boolean }>`
     margin: 0;
-    color: #000;
+    color: ${(props) => (props.$DarkTheme ? '#ffffff' : '#000')};
     font-size: 14px;
     font-style: normal;
     line-height: 18px;
 `;
-export const Year = styled.p`
+export const Year = styled.p<{ $DarkTheme?: boolean }>`
     margin: 0;
-    color: #000;
+    color: ${(props) => (props.$DarkTheme ? '#ffffff' : '#000')};
     font-size: 14px;
     font-style: normal;
     line-height: 18px;

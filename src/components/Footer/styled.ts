@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-top: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.4)')};
     padding: 29px 18px 0px 0px;
 `;
 export const WrapperInfo = styled.div`
@@ -13,9 +13,9 @@ export const WrapperInfo = styled.div`
     align-items: flex-start;
     gap: 42px;
 `;
-export const TextLeft = styled.p`
+export const TextLeft = styled.p<{ $DarkTheme?: boolean }>`
     margin: 0;
-    color: rgba(0, 0, 0, 0.83);
+    color: ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.83)')};
     font-family: medium;
     font-size: 20px;
     font-style: normal;
@@ -23,9 +23,9 @@ export const TextLeft = styled.p`
     line-height: normal;
     width: 293px;
 `;
-export const TextRight = styled.p`
+export const TextRight = styled.p<{ $DarkTheme?: boolean }>`
     margin: 0;
-    color: rgba(0, 0, 0, 0.83);
+    color: ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.83)')};
     font-family: medium;
     font-size: 20px;
     font-style: normal;
@@ -40,8 +40,8 @@ export const WrapperText = styled.div`
     margin-left: 44px;
     margin-top: 36px;
 `;
-export const FooterText = styled.h3`
-    color: rgba(0, 0, 0, 0.4);
+export const FooterText = styled.h3<{ $DarkTheme?: boolean }>`
+    color: ${(props) => (props.$DarkTheme ? '#F0F0F0' : 'rgba(0, 0, 0, 0.4)')};
     font-family: medium;
     font-size: 24px;
     font-style: normal;
@@ -61,4 +61,12 @@ export const WrapperLinks = styled.div`
 export const ImageWrapper = styled.div`
     width: 16px;
     height: 16px;
+    cursor: pointer;
+    transition:
+        transform 0.3s,
+        filter 0.3s;
+    &:hover {
+        transform: scale(1.5);
+        filter: invert(76%) sepia(56%) saturate(5908%) hue-rotate(359deg) brightness(100%) contrast(102%);
+    }
 `;

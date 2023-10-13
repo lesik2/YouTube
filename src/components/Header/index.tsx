@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         <Wrapper>
             <LogoWrapper>
                 <img src={labelIcon} alt="modsen film logo" />
-                <LogoTitle>ModsenFilms</LogoTitle>
+                <LogoTitle $DarkTheme={isDarkTheme}>ModsenFilms</LogoTitle>
             </LogoWrapper>
             <SearchWrapper>
                 <SearchInput placeholder="Search" />
