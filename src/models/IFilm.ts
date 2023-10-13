@@ -1,15 +1,9 @@
 export interface IFilm {
-    rank: number;
-    title: string;
-    thumnail: string;
-    rating: string;
-    id: string;
+    id: number;
+    name: string;
+    poster: { url: string };
+    videos: { trailers: string[] };
+    persons: { enName: string; name: string }[];
+    enName: string | null;
     year: number;
-    image: string;
-    description: string;
-    trailer: string;
-    genre: string[];
-    director: string[];
-    writers: string[];
-    imbdid: string;
 }

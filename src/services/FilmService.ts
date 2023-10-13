@@ -1,18 +1,31 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IFilm } from '../models/IFilm';
+interface IParams {
+    page: number;
+    ['genres.name']: string | undefined;
+    limit: number;
+}
+interface IResult {
+    docs: IFilm[];
+    page: number;
+    limit: number;
+}
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://imdb-top-100-movies.p.rapidapi.com/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),
     endpoints: (build) => ({
-        fetchAllFilms: build.query<IFilm[], number>({
-            query: (limit: number = 16) => ({
-                url: '',
+        fetchAllFilms: build.query<IResult, IParams>({
+            query: (param: IParams) => ({
+                // eslint-disable-next-line max-len
+                url: '/v1.3/movie?selectFields=id%20enName%20year%20persons.enName%20persons.name%20page%20limit%20poster.url%20name%20videos.trailers.url',
                 headers: {
-                    'X-RapidAPI-Key': 'd18637c0c5msh588b83e7e66453cp12d19ajsna5f8204d2159',
-                    'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
+                    accept: 'application/json',
+                    'X-API-KEY': '7V3T0KW-YNMM2QY-JKD4755-CXZB0J9',
                 },
                 params: {
-                    _limit: limit,
+                    [param['genres.name'] === undefined ? 'genre' : 'genres.name']: param['genres.name'],
+                    page: param.page,
+                    limit: param.limit,
                 },
             }),
         }),

@@ -28,8 +28,8 @@ const Categories: React.FC = () => {
                         All
                     </AllFilmsLink>
                     {categories?.slice(0, 6).map((category, index) => (
-                        <CategoryLink $active={categoryState === category} onClick={handleClick} key={index}>
-                            {category}
+                        <CategoryLink $active={categoryState === category.name} onClick={handleClick} key={index}>
+                            {category.name}
                         </CategoryLink>
                     ))}
                 </>

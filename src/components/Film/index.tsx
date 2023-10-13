@@ -14,7 +14,7 @@ const images = require.context('../../assets/images', true);
 interface IFilmComponent {
     image: string;
     year: number;
-    director: string[];
+    director: string;
     title: string;
 }
 import { useAppSelector } from '../../hooks/redux';
@@ -35,7 +35,7 @@ const Film: React.FC<IFilmComponent> = ({ image, year, director, title }) => {
                 <FilmInfo>
                     <FilmName $DarkTheme={isDarkTheme}>{title}</FilmName>
                     <AuthorYear>
-                        <Author $DarkTheme={isDarkTheme}>{director[0]} • </Author>
+                        <Author $DarkTheme={isDarkTheme}>{director} • </Author>
                         <Year $DarkTheme={isDarkTheme}>{year}</Year>
                     </AuthorYear>
                 </FilmInfo>
