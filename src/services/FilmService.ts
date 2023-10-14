@@ -14,6 +14,7 @@ export interface IResultCategories {
     name: string;
     slug: string;
 }
+const API_KEY = '7V3T0KW-YNMM2QY-JKD4755-CXZB0J9';
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),
@@ -24,7 +25,7 @@ export const FilmAPI = createApi({
                 url: '/v1.3/movie?selectFields=id%20enName%20year%20persons.enName%20persons.name%20page%20limit%20poster.url%20name%20videos.trailers.url',
                 headers: {
                     accept: 'application/json',
-                    'X-API-KEY': '7V3T0KW-YNMM2QY-JKD4755-CXZB0J9',
+                    'X-API-KEY': API_KEY,
                 },
                 params: {
                     [param['genres.name'] === undefined ? 'genre' : 'genres.name']: param['genres.name'],
@@ -37,7 +38,7 @@ export const FilmAPI = createApi({
             query: () => ({
                 url: '/v1/movie/possible-values-by-field?field=genres.name',
                 headers: {
-                    'X-API-KEY': '7V3T0KW-YNMM2QY-JKD4755-CXZB0J9',
+                    'X-API-KEY': API_KEY,
                     accept: 'application/json',
                 },
             }),

@@ -28,7 +28,6 @@ const FilmsContainer = () => {
     return (
         <Wrapper>
             <FilmWrapper>
-                {error && <h1>Something went wrong</h1>}
                 {(isLoading || isFetching) &&
                     Array(16)
                         .fill('')
@@ -44,6 +43,7 @@ const FilmsContainer = () => {
                         />
                     ))}
             </FilmWrapper>
+            {error && <h1>Something went wrong</h1>}
             {isFetching && limit !== 16 && <InfinityLoader />}
             <Button onClick={handleClick}>Show More</Button>
         </Wrapper>
