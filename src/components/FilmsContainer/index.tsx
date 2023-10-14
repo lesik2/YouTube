@@ -5,6 +5,8 @@ import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
 import { useAppSelector } from '../../hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
+import SRC from '../../constants/index';
+import { IFilm } from '@/models/IFilm';
 
 const FilmsContainer = () => {
     const [limit, setLimit] = useState(16);
@@ -25,6 +27,19 @@ const FilmsContainer = () => {
     const handleClick = () => {
         setLimit((prev) => prev + 16);
     };
+    const getSrcForVideo = (film: IFilm) => {
+        if (!film.videos) {
+            return SRC;
+        }
+        let result: string = '';
+        for (let i = 0; i < film.videos.trailers.length; i += 1) {
+            if (film.videos.trailers[i]) {
+                result = film.videos.trailers[i].url;
+                break;
+            }
+        }
+        return result === '' ? SRC : result;
+    };
     return (
         <Wrapper>
             <FilmWrapper>
@@ -40,6 +55,7 @@ const FilmsContainer = () => {
                             image={film.poster.url}
                             year={film.year}
                             director={film.persons[0].enName ?? film.persons[0].name}
+                            video={getSrcForVideo(film)}
                         />
                     ))}
             </FilmWrapper>

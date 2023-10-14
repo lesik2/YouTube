@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
     Author,
     AuthorYear,
@@ -16,18 +16,27 @@ interface IFilmComponent {
     year: number;
     director: string;
     title: string;
+    video: string;
 }
 import { useAppSelector } from '../../hooks/redux';
-const Film: React.FC<IFilmComponent> = ({ image, year, director, title }) => {
+import Modal from '../Modal/index';
+const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video }) => {
+    const [isOpen, setIsOpen] = useState(false);
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const getRandomIcon = useMemo(() => {
         const imageList = images.keys().map((image) => images(image));
         const random = Math.floor(Math.random() * imageList.length);
         return imageList[random];
     }, [image, year, director, title]);
+    const handleOpen = () => {
+        setIsOpen(true);
+    };
+    const handleClose = () => {
+        setIsOpen(false);
+    };
     return (
         <Wrapper>
-            <ImageFilmWrapper $image={image} />
+            <ImageFilmWrapper $image={image} onClick={handleOpen} />
             <FilmInfoWrapper>
                 <ImageAccountWrapper>
                     <img src={getRandomIcon} alt="icon of account" />
@@ -40,6 +49,7 @@ const Film: React.FC<IFilmComponent> = ({ image, year, director, title }) => {
                     </AuthorYear>
                 </FilmInfo>
             </FilmInfoWrapper>
+            {isOpen && <Modal src={video} onClose={handleClose} />}
         </Wrapper>
     );
 };
