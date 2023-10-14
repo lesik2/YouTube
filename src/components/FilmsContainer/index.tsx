@@ -4,6 +4,7 @@ import { FilmAPI } from '../../services/FilmService';
 import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
 import { useAppSelector } from '../../hooks/redux';
+import InfinityLoader from '../InfinityLoader/index';
 
 const FilmsContainer = () => {
     const categoryState = useAppSelector((state) => state.categoryReducer.category);
@@ -36,6 +37,7 @@ const FilmsContainer = () => {
                         />
                     ))}
             </FilmWrapper>
+            <InfinityLoader />
             <Button>Show More</Button>
         </Wrapper>
     );

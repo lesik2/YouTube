@@ -1,11 +1,11 @@
 import React from 'react';
 import { AllFilmsLink, CategoryLink, Wrapper } from './styled';
-import { CategoryAPI } from '../../services/CategoryService';
+import { FilmAPI } from '../../services/FilmService';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeCategory } from '../../store/reducers/CategorySlice';
 
 const Categories: React.FC = () => {
-    const { data: categories, error, isLoading } = CategoryAPI.useFetchAllCategoriesQuery('genre');
+    const { data: categories, error, isLoading } = FilmAPI.useFetchAllCategoriesQuery('genre');
     const categoryState = useAppSelector((state) => state.categoryReducer.category);
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const dispatch = useAppDispatch();

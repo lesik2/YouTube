@@ -6,10 +6,10 @@ const spin = keyframes`
   }
 `;
 export const Loader = styled.div`
-    height: 200px;
-    weight: 200px;
-    border: 12px solid #e3e3e3;
+    height: 100px;
+    width: 100px;
+    border: 8px solid #e3e3e3;
     border-radius: 50%;
     border-right-color: #ff8a00;
-    animation: ${spin} 1s easy infinite;
+    animation: ${spin} 1s infinite;
 `;
