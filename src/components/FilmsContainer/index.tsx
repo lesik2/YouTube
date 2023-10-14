@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Wrapper, FilmWrapper } from './styled';
 import { FilmAPI } from '../../services/FilmService';
 import Film from '../Film/index';
@@ -7,6 +7,7 @@ import { useAppSelector } from '../../hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
 
 const FilmsContainer = () => {
+    const [limit, setLimit] = useState(16);
     const categoryState = useAppSelector((state) => state.categoryReducer.category);
     const {
         data: films,
@@ -15,9 +16,15 @@ const FilmsContainer = () => {
         isFetching,
     } = FilmAPI.useFetchAllFilmsQuery({
         page: 1,
-        limit: 16,
+        limit: limit,
         'genres.name': categoryState === 'All' ? undefined : categoryState,
     });
+    useEffect(() => {
+        setLimit(16);
+    }, [categoryState]);
+    const handleClick = () => {
+        setLimit((prev) => prev + 16);
+    };
     return (
         <Wrapper>
             <FilmWrapper>
@@ -37,8 +44,8 @@ const FilmsContainer = () => {
                         />
                     ))}
             </FilmWrapper>
-            <InfinityLoader />
-            <Button>Show More</Button>
+            {isFetching && limit !== 16 && <InfinityLoader />}
+            <Button onClick={handleClick}>Show More</Button>
         </Wrapper>
     );
 };
