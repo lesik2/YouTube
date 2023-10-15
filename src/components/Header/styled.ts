@@ -9,7 +9,6 @@ export const Wrapper = styled.section`
     @media (max-width: ${MAX_WIDTH_TABLET}) {
         flex-direction: column;
         padding: 0px 20px;
-        justify-content: none;
         gap: 16px;
     }
 `;
