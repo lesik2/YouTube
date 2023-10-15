@@ -1,3 +1,4 @@
+import { MAX_WIDTH_LAPTOP } from '../../constants/index';
 import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
@@ -12,4 +13,8 @@ export const Loader = styled.div`
     border-radius: 50%;
     border-right-color: #ff8a00;
     animation: ${spin} 1s infinite;
+    @media (max-width: ${MAX_WIDTH_LAPTOP}) {
+        width: 60px;
+        height: 60px;
+    }
 `;

@@ -14,7 +14,7 @@ export interface IResultCategories {
     name: string;
     slug: string;
 }
-const API_KEY = 'EZ2XK87-S3Z47VY-J7XMKBT-934BD4C';
+const API_KEY = 'KHVMS0C-5YK4Y7B-HZX76XJ-B84S1A7';
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),

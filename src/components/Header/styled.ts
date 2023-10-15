@@ -1,3 +1,4 @@
+import { MAX_WIDTH_TABLET } from '../../constants/index';
 import styled from 'styled-components';
 export const Wrapper = styled.section`
     padding: 0px 8px;
@@ -5,11 +6,20 @@ export const Wrapper = styled.section`
     align-items: center;
     min-height: 68px;
     justify-content: space-between;
+    @media (max-width: ${MAX_WIDTH_TABLET}) {
+        flex-direction: column;
+        padding: 0px 20px;
+        justify-content: none;
+        gap: 16px;
+    }
 `;
 export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 6px;
+    @media (max-width: ${MAX_WIDTH_TABLET}) {
+        gap: 0.3px;
+    }
 `;
 export const LogoTitle = styled.h2<{ $DarkTheme?: boolean }>`
     color: ${(props) => (props.$DarkTheme ? '#ffffff' : '#000000')};
@@ -41,6 +51,10 @@ export const SearchButton = styled.button`
         background: #f0f0f0;
         border: 2px solid #c4c4c4;
     }
+    @media (max-width: 440px) {
+        width: 51px;
+        height: 33px;
+    }
 `;
 export const SearchInput = styled.input`
     width: 570px;
@@ -61,6 +75,16 @@ export const SearchInput = styled.input`
         border: 1px solid #ff8a00;
         box-shadow: inset 0px 0px 2px #ff8a00;
     }
+    @media (max-width: 860px) {
+        width: 350px;
+    }
+    @media (max-width: 440px) {
+        width: 212px;
+        height: 33px;
+    }
+    @media (max-width: 300px) {
+        width: 161px;
+    }
 `;
 export const ToggleTheme = styled.input`
     display: none;
@@ -80,11 +104,20 @@ export const ToggleThemeLabel = styled.label`
 export const ThemeBowl = styled.div`
     background: #ffffff;
     border-radius: 100%;
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
     border: 2px solid #ff8a00;
     position: absolute;
     bottom: -1px;
     left: -2px;
     transition: transform 0.3s;
+`;
+export const BurgerWrapper = styled.div`
+    @media (max-width: ${MAX_WIDTH_TABLET}) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 51px;
+    }
 `;

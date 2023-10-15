@@ -1,5 +1,6 @@
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import {
+    BurgerWrapper,
     LogoTitle,
     LogoWrapper,
     SearchButton,
@@ -14,7 +15,10 @@ import labelIcon from '../../assets/icons/labelIcon.svg';
 import searchIcon from '../../assets/icons/searchIcon.svg';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeTheme } from '../../store/reducers/ThemeSlice';
+import BurgerMenu from '../BurgerMenu';
+import Menu from '../Menu';
 const Header: React.FC = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const id = useId();
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const dispatch = useAppDispatch();
@@ -23,20 +27,25 @@ const Header: React.FC = () => {
     };
     return (
         <Wrapper>
-            <LogoWrapper>
-                <img src={labelIcon} alt="modsen film logo" />
-                <LogoTitle $DarkTheme={isDarkTheme}>ModsenFilms</LogoTitle>
-            </LogoWrapper>
+            <BurgerWrapper>
+                <LogoWrapper>
+                    <img src={labelIcon} alt="modsen film logo" />
+                    <LogoTitle $DarkTheme={isDarkTheme}>ModsenFilms</LogoTitle>
+                </LogoWrapper>
+                <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+            </BurgerWrapper>
             <SearchWrapper>
                 <SearchInput placeholder="Search" />
                 <SearchButton>
                     <img src={searchIcon} alt="search icon" />
                 </SearchButton>
             </SearchWrapper>
-            <ToggleTheme onChange={handleOnChange} checked={isDarkTheme} type="checkbox" id={`${id}-themeInput`} />
-            <ToggleThemeLabel className="theme-label" htmlFor={`${id}-themeInput`}>
-                <ThemeBowl className="theme-bowl" />
-            </ToggleThemeLabel>
+            <Menu isOpen={isOpen}>
+                <ToggleTheme onChange={handleOnChange} checked={isDarkTheme} type="checkbox" id={`${id}-themeInput`} />
+                <ToggleThemeLabel className="theme-label" htmlFor={`${id}-themeInput`}>
+                    <ThemeBowl className="theme-bowl" />
+                </ToggleThemeLabel>
+            </Menu>
         </Wrapper>
     );
 };

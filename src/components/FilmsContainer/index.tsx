@@ -5,7 +5,7 @@ import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
 import { useAppSelector } from '../../hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import SRC from '../../constants/index';
+import { SRC } from '../../constants/index';
 import { IFilm } from '@/models/IFilm';
 
 const FilmsContainer = () => {

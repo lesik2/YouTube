@@ -1,3 +1,4 @@
+import { MAX_WIDTH_LAPTOP, MAX_WIDTH_MOBILE, MAX_WIDTH_TABLET } from '../../constants/index';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -19,6 +20,9 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: ${MAX_WIDTH_MOBILE}) {
+        padding: 5px;
+    }
 `;
 export const Close = styled.div`
     position: absolute;
@@ -38,6 +42,10 @@ export const Close = styled.div`
     &:hover .close-img {
         filter: invert(59%) sepia(87%) saturate(2633%) hue-rotate(0deg) brightness(100%) contrast(100%);
     }
+    @media (max-width: ${MAX_WIDTH_MOBILE}) {
+        right: 4px;
+        top: -22px;
+    }
 `;
 export const Image = styled.img`
     transition: filter 0.2s;
@@ -47,4 +55,20 @@ export const IFrame = styled.iframe`
     outline: none;
     width: 900px;
     height: 500px;
+    @media (max-width: 900px) {
+        width: 650px;
+        height: 380px;
+    }
+    @media (max-width: ${MAX_WIDTH_LAPTOP}) {
+        width: 500px;
+        height: 300px;
+    }
+    @media (max-width: ${MAX_WIDTH_TABLET}) {
+        width: 420px;
+        height: 260px;
+    }
+    @media (max-width: ${MAX_WIDTH_MOBILE}) {
+        width: 320px;
+        height: 200px;
+    }
 `;

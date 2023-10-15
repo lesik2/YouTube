@@ -30,7 +30,6 @@ const Footer = () => {
                         About Press Copyright Contact us Creators Advertise Developers
                     </TextRight>
                 </WrapperText>
-                <FooterText $DarkTheme={isDarkTheme}>2023 Modsen company</FooterText>
                 <WrapperLinks>
                     <ImageWrapper>
                         <img alt="facebook" src={facebook} />
@@ -45,6 +44,7 @@ const Footer = () => {
                         <img alt="linkedin" src={linkedin} />
                     </ImageWrapper>
                 </WrapperLinks>
+                <FooterText $DarkTheme={isDarkTheme}>2023 Modsen company</FooterText>
             </WrapperInfo>
         </Wrapper>
     );

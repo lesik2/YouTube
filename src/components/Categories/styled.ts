@@ -8,6 +8,19 @@ export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     gap: 10px;
     border-top: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
     border-bottom: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
+    @media (max-width: 670px) {
+        border: none;
+        margin-top: 13px;
+        flex-wrap: wrap;
+        justify-content: start;
+        padding-left: 14px;
+        height: 100%;
+        gap: 6px;
+    }
+    @media (max-width: 360px) {
+        overflow: auto;
+        max-height: 66px;
+    }
 `;
 export const AllFilmsLink = styled.a<{ $active?: boolean }>`
     width: 52px;
