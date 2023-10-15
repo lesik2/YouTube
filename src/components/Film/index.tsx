@@ -27,7 +27,7 @@ const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video })
         const imageList = images.keys().map((image) => images(image));
         const random = Math.floor(Math.random() * imageList.length);
         return imageList[random];
-    }, [image, year, director, title]);
+    }, [image, year, director, title, video]);
     const handleOpen = () => {
         setIsOpen(true);
     };

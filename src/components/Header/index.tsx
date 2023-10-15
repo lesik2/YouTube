@@ -1,30 +1,15 @@
-import React, { useId, useState } from 'react';
-import {
-    BurgerWrapper,
-    LogoTitle,
-    LogoWrapper,
-    SearchButton,
-    SearchInput,
-    SearchWrapper,
-    ThemeBowl,
-    ToggleTheme,
-    ToggleThemeLabel,
-    Wrapper,
-} from './styled';
+import React, { useState } from 'react';
+import { BurgerWrapper, LogoTitle, LogoWrapper, SearchButton, SearchInput, SearchWrapper, Wrapper } from './styled';
 import labelIcon from '../../assets/icons/labelIcon.svg';
 import searchIcon from '../../assets/icons/searchIcon.svg';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { changeTheme } from '../../store/reducers/ThemeSlice';
+import { useAppSelector } from '../../hooks/redux';
 import BurgerMenu from '../BurgerMenu';
 import Menu from '../Menu';
+import ToggleTheme from '../ToggleTheme/index';
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const id = useId();
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
-    const dispatch = useAppDispatch();
-    const handleOnChange = () => {
-        dispatch(changeTheme());
-    };
+
     return (
         <Wrapper>
             <BurgerWrapper>
@@ -41,10 +26,7 @@ const Header: React.FC = () => {
                 </SearchButton>
             </SearchWrapper>
             <Menu isOpen={isOpen}>
-                <ToggleTheme onChange={handleOnChange} checked={isDarkTheme} type="checkbox" id={`${id}-themeInput`} />
-                <ToggleThemeLabel className="theme-label" htmlFor={`${id}-themeInput`}>
-                    <ThemeBowl className="theme-bowl" />
-                </ToggleThemeLabel>
+                <ToggleTheme />
             </Menu>
         </Wrapper>
     );
