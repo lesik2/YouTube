@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Wrapper, FilmWrapper } from './styled';
+import { Button, Wrapper, FilmWrapper, Error } from './styled';
 import { FilmAPI } from '../../services/FilmService';
 import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
 import { useAppSelector } from '../../hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import { SRC } from '../../constants/index';
+import { DEFAULT_POSTER, SRC } from '../../constants/index';
 import { IFilm } from '@/models/IFilm';
+import NotFound from '../NotFound';
 
 const FilmsContainer = () => {
     const [limit, setLimit] = useState(16);
-    const categoryState = useAppSelector((state) => state.categoryReducer.category);
+    const categoryState = useAppSelector((state) => state.filterParamsReducer.category);
+    const searchState = useAppSelector((state) => state.filterParamsReducer.search);
     const {
         data: films,
         isLoading,
@@ -19,7 +21,8 @@ const FilmsContainer = () => {
     } = FilmAPI.useFetchAllFilmsQuery({
         page: 1,
         limit: limit,
-        'genres.name': categoryState === 'All' ? undefined : categoryState,
+        'genres.name': categoryState === 'All' || categoryState === '' ? undefined : categoryState,
+        search: searchState,
     });
     useEffect(() => {
         setLimit(16);
@@ -52,14 +55,15 @@ const FilmsContainer = () => {
                         <Film
                             key={film.id}
                             title={film.enName ?? film.name}
-                            image={film.poster.url}
+                            image={film.poster === undefined ? DEFAULT_POSTER : film.poster.url}
                             year={film.year}
                             director={film.persons[0].enName ?? film.persons[0].name}
                             video={getSrcForVideo(film)}
                         />
                     ))}
             </FilmWrapper>
-            {error && <h1>Something went wrong</h1>}
+            {films?.docs.length === 0 && <NotFound />}
+            {error && <Error>Something went wrong</Error>}
             {isFetching && limit !== 16 && <InfinityLoader />}
             <Button onClick={handleClick}>Show More</Button>
         </Wrapper>

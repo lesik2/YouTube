@@ -67,3 +67,6 @@ export const CategoryLink = styled.a<{ $active?: boolean }>`
         background: ${(props) => (props.$active ? '#000000' : '#cccccc')};
     }
 `;
+export const Error = styled.h1`
+    use-select: none;
+`;

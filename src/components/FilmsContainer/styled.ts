@@ -56,3 +56,6 @@ export const Button = styled.button`
         font-size: 18px;
     }
 `;
+export const Error = styled.h1`
+    use-select: none;
+`;
