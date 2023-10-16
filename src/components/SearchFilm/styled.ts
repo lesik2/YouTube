@@ -45,7 +45,7 @@ export const SearchInput = styled.input`
         border: 1px solid #ff8a00;
         box-shadow: inset 0px 0px 2px #ff8a00;
     }
-    @media (max-width: 860px) {
+    @media (max-width: 870px) {
         width: 350px;
     }
     @media (max-width: 440px) {

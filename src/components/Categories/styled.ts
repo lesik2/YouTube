@@ -5,9 +5,13 @@ export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 125px;
     gap: 10px;
     border-top: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
     border-bottom: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
+    @media (max-width: 870px) {
+        padding-left: 0px;
+    }
     @media (max-width: 670px) {
         border: none;
         margin-top: 13px;
