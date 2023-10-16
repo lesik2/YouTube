@@ -10,15 +10,16 @@ const SearchFilm = () => {
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     };
-    const handleClick = () => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         dispatch(setSearch(value));
         dispatch(changeCategory(''));
         setValue('');
     };
     return (
-        <SearchWrapper>
+        <SearchWrapper onSubmit={handleSubmit}>
             <SearchInput placeholder="Search" value={value} onChange={handleInput} />
-            <SearchButton onClick={handleClick}>
+            <SearchButton type="submit">
                 <img src={searchIcon} alt="search icon" />
             </SearchButton>
         </SearchWrapper>

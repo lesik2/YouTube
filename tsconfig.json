@@ -16,15 +16,6 @@
         "noImplicitAny": true,
         "strictNullChecks": true,
         "declaration": true,
-        "paths": {
-            "@/*": ["./src/*"],
-            "@components/*": ["./components/*"],
-            "@ui/*": ["./components/ui/*"],
-            "@pages/*": ["./pages/*"],
-            "@hooks/*": ["./hooks/*"],
-            "@api/*": ["./api/*"],
-            "@utils/*": ["./utils/*"]
-        }
     },
     "include": ["src/components","custom.d.ts"]
 }

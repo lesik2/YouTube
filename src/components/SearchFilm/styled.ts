@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-export const SearchWrapper = styled.div`
+export const SearchWrapper = styled.form`
     display: flex;
     align-items: center;
+    border: none;
+    outline: none;
 `;
 export const SearchButton = styled.button`
     display: flex;

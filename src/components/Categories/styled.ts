@@ -5,7 +5,7 @@ export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 125px;
+    padding-left: 130px;
     gap: 10px;
     border-top: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
     border-bottom: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
