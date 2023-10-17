@@ -5,12 +5,12 @@ import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
 import { useAppSelector } from '@hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import { DEFAULT_POSTER, SRC } from '@constants/index';
+import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE } from '@constants/index';
 import { IFilm } from '@models/IFilm';
 import NotFound from '../NotFound';
 
 const FilmsContainer = () => {
-    const [limit, setLimit] = useState(16);
+    const [limit, setLimit] = useState(FILMS_PER_PAGE);
     const categoryState = useAppSelector((state) => state.filterParamsReducer.category);
     const searchState = useAppSelector((state) => state.filterParamsReducer.search);
     const {
@@ -25,10 +25,10 @@ const FilmsContainer = () => {
         search: searchState,
     });
     useEffect(() => {
-        setLimit(16);
+        setLimit(FILMS_PER_PAGE);
     }, [categoryState]);
     const handleClick = () => {
-        setLimit((prev) => prev + 16);
+        setLimit((prev) => prev + FILMS_PER_PAGE);
     };
     const getSrcForVideo = (film: IFilm) => {
         if (!film.videos) {
@@ -47,8 +47,8 @@ const FilmsContainer = () => {
         <Wrapper>
             <FilmWrapper>
                 {(isLoading || isFetching) &&
-                    limit === 16 &&
-                    Array(16)
+                    limit === FILMS_PER_PAGE &&
+                    Array(FILMS_PER_PAGE)
                         .fill('')
                         .map((item, index) => <SkeletonLoader key={index} />)}
                 {films?.docs &&
@@ -65,7 +65,7 @@ const FilmsContainer = () => {
             </FilmWrapper>
             {films?.docs.length === 0 && <NotFound />}
             {error && <Error>Something went wrong</Error>}
-            {isFetching && limit !== 16 && <InfinityLoader />}
+            {isFetching && limit !== FILMS_PER_PAGE && <InfinityLoader />}
             <Button onClick={handleClick}>Show More</Button>
         </Wrapper>
     );
