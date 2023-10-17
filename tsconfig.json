@@ -2,9 +2,9 @@
     "compilerOptions": {
         "baseUrl": "./",
         "allowSyntheticDefaultImports": true,
-        "module": "es2015",
+        "module": "esnext",
         "target": "es5",
-        "lib": ["es6", "dom"],
+        "lib": ["esnext", "dom"],
         "sourceMap": true,
         "allowJs": false,
         "jsx": "react",
@@ -16,6 +16,10 @@
         "noImplicitAny": true,
         "strictNullChecks": true,
         "declaration": true,
+        "types": ["jest", "node","webpack-env"],
+        "typeRoots": ["node_modules/@types"],
+        "esModuleInterop": true
     },
-    "include": ["src/components","custom.d.ts"]
+    "include": ["src/components","custom.d.ts","src/tests"],
+    "exclude": ["node_modules"]
 }

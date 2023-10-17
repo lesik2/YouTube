@@ -17,7 +17,7 @@ const Categories: React.FC = () => {
         }
     };
     return (
-        <Wrapper $DarkTheme={isDarkTheme}>
+        <Wrapper data-testid="categories" $DarkTheme={isDarkTheme}>
             {isLoading &&
                 Array(7)
                     .fill('')

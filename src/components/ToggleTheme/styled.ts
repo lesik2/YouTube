@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+export const Wrapper = styled.div``;
 export const ToggleThemeInput = styled.input`
     display: none;
     &:checked + .theme-label .theme-bowl {
