@@ -10,7 +10,7 @@ import {
     WrapperText,
 } from './styled';
 import facebook from '@assets/icons/facebook.svg';
-import twitter from '@close.svg';
+import twitter from '@assets/icons/close.svg';
 import instagram from '@assets/icons/instagram.svg';
 import linkedin from '@assets/icons/linkedIn.svg';
 import { useAppSelector } from '@hooks/redux';

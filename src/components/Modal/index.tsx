@@ -13,7 +13,7 @@ const Modal: React.FC<IModal> = ({ onClose, src }) => {
         ? ReactDOM.createPortal(
               <Wrapper>
                   <Content>
-                      <IFrame src={`${src}?autoplay=1&fs=1`}></IFrame>
+                      <IFrame allowFullScreen allow="autoplay" src={`${src}?autoplay=1&fs=1`}></IFrame>
                       <Close onClick={onClose}>
                           <Image className="close-img" src={closeIcon} alt="close modal window" />
                       </Close>
