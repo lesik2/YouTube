@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line, Wrapper } from './styled';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '@hooks/redux';
 interface IBurgerMenu {
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;

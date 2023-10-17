@@ -18,8 +18,18 @@
         "declaration": true,
         "types": ["jest", "node","webpack-env"],
         "typeRoots": ["node_modules/@types"],
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "paths": {
+          "@/*": ["src*"],
+          "@services/*": ["src/services/*"],
+          "@hooks/*": ["src/hooks/*"],
+          "@store/*": ["src/store/*"],
+          "@assets/*": ["src/assets/*"],
+          "@constants/*": ["src/constants/*"],
+          "@models/*": ["src/models/*"],
+          "@components/*": ["src/components/*"],
+        }
     },
     "include": ["src/components","custom.d.ts","src/tests"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
 }

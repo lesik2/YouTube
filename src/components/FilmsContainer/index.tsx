@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Wrapper, FilmWrapper, Error } from './styled';
-import { FilmAPI } from '../../services/FilmService';
+import { FilmAPI } from '@services/FilmService';
 import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '@hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import { DEFAULT_POSTER, SRC } from '../../constants/index';
-import { IFilm } from '../../models/IFilm';
+import { DEFAULT_POSTER, SRC } from '@constants/index';
+import { IFilm } from '@models/IFilm';
 import NotFound from '../NotFound';
 
 const FilmsContainer = () => {
@@ -47,6 +47,7 @@ const FilmsContainer = () => {
         <Wrapper>
             <FilmWrapper>
                 {(isLoading || isFetching) &&
+                    limit === 16 &&
                     Array(16)
                         .fill('')
                         .map((item, index) => <SkeletonLoader key={index} />)}

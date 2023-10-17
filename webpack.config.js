@@ -36,6 +36,16 @@ const baseConfig = {
     },
     resolve: {
         extensions: ['.*', '.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            '@': path.resolve(__dirname, 'src/'),
+            '@services': path.resolve(__dirname, 'src/services/'),
+            '@hooks': path.resolve(__dirname, 'src/hooks/'),
+            '@store': path.resolve(__dirname, 'src/store/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@constants': path.resolve(__dirname, 'src/constants/'),
+            '@models': path.resolve(__dirname, 'src/models/'),
+            '@components': path.resolve(__dirname, 'src/components/'),
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({

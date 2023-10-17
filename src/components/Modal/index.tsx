@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Close, Content, IFrame, Wrapper, Image } from './styled';
-import closeIcon from '../../assets/icons/close.svg';
+import closeIcon from '@assets/icons/close.svg';
 
 interface IModal {
     onClose: () => void;

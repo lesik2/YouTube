@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { SearchButton, SearchInput, SearchWrapper } from './styled';
-import searchIcon from '../../assets/icons/searchIcon.svg';
-import { useAppDispatch } from '../../hooks/redux';
-import { setSearch, changeCategory } from '../../store/reducers/FilterParamsSlice';
+import searchIcon from '@assets/icons/searchIcon.svg';
+import { useAppDispatch } from '@hooks/redux';
+import { setSearch, changeCategory } from '@store/reducers/FilterParamsSlice';
 
 const SearchFilm = () => {
     const dispatch = useAppDispatch();

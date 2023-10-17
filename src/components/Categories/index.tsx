@@ -1,8 +1,8 @@
 import React from 'react';
 import { AllFilmsLink, CategoryLink, Wrapper, Error } from './styled';
-import { FilmAPI } from '../../services/FilmService';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { changeCategory, setSearch } from '../../store/reducers/FilterParamsSlice';
+import { FilmAPI } from '@services/FilmService';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
 
 const Categories: React.FC = () => {
     const { data: categories, error, isLoading } = FilmAPI.useFetchAllCategoriesQuery('genre');

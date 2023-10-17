@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Error, ImageWrapper, Wrapper } from './styled';
-import error from '../../assets/icons/error.svg';
+import error from '@assets/icons/error.svg';
 interface Props {
     children?: ReactNode;
 }

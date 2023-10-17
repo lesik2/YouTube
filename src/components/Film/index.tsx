@@ -10,7 +10,7 @@ import {
     Wrapper,
     Year,
 } from './styled';
-const images = require.context('../../assets/images', true);
+const images = require.context('@assets/images', true);
 interface IFilmComponent {
     image: string;
     year: number;
@@ -18,7 +18,7 @@ interface IFilmComponent {
     title: string;
     video: string;
 }
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '@hooks/redux';
 import Modal from '../Modal/index';
 const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video }) => {
     const [isOpen, setIsOpen] = useState(false);

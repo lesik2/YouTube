@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper } from './styled';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '@hooks/redux';
 interface IMenu {
     children: React.ReactNode;
     isOpen: boolean;

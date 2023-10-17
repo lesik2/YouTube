@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import themeReducer from './reducers/ThemeSlice';
 import filterParamsReducer from './reducers/FilterParamsSlice';
-import { FilmAPI } from '../services/FilmService';
+import { FilmAPI } from '@services/FilmService';
 
 const rootReducer = combineReducers({
     themeReducer,
