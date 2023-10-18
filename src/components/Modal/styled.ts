@@ -21,7 +21,7 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
     @media (max-width: ${MAX_WIDTH_MOBILE}) {
-        padding: 5px;
+        padding: 0px;
     }
 `;
 export const Close = styled.div`
@@ -43,8 +43,8 @@ export const Close = styled.div`
         filter: invert(59%) sepia(87%) saturate(2633%) hue-rotate(0deg) brightness(100%) contrast(100%);
     }
     @media (max-width: ${MAX_WIDTH_MOBILE}) {
-        right: 4px;
-        top: -22px;
+        right: 2px;
+        top: -28px;
     }
 `;
 export const Image = styled.img`
@@ -53,22 +53,22 @@ export const Image = styled.img`
 export const IFrame = styled.iframe`
     border: none;
     outline: none;
-    width: 900px;
-    height: 500px;
+    width: 850px;
+    height: 450px;
     @media (max-width: 900px) {
         width: 650px;
-        height: 380px;
+        height: 320px;
     }
     @media (max-width: ${MAX_WIDTH_LAPTOP}) {
         width: 500px;
-        height: 300px;
+        height: 280px;
     }
     @media (max-width: ${MAX_WIDTH_TABLET}) {
         width: 420px;
-        height: 260px;
+        height: 220px;
     }
     @media (max-width: ${MAX_WIDTH_MOBILE}) {
-        width: 320px;
-        height: 200px;
+        width: 100%;
+        height: 170px;
     }
 `;
