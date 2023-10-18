@@ -1,18 +1,25 @@
 import React from 'react';
-import { Wrapper } from './styled';
+import { Wrapper, Content } from './styled';
 import { useAppSelector } from '@hooks/redux';
 interface IMenu {
     children: React.ReactNode;
     isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const Menu: React.FC<IMenu> = ({ children, isOpen }) => {
+const Menu: React.FC<IMenu> = ({ children, isOpen, setIsOpen }) => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+    const handleClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+    };
     return (
-        <>
-            <Wrapper $isOpen={isOpen} $isDarkTheme={isDarkTheme}>
+        <Wrapper onClick={closeMenu} $isOpen={isOpen}>
+            <Content onClick={handleClick} $isDarkTheme={isDarkTheme} $isOpen={isOpen}>
                 {children}
-            </Wrapper>
-        </>
+            </Content>
+        </Wrapper>
     );
 };
 export default Menu;

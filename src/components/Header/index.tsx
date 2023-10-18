@@ -20,7 +20,7 @@ const Header: React.FC = () => {
                 <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
             </BurgerWrapper>
             <SearchFilm />
-            <Menu isOpen={isOpen}>
+            <Menu isOpen={isOpen} setIsOpen={setIsOpen}>
                 <ToggleTheme />
             </Menu>
         </Wrapper>
