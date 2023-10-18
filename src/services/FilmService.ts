@@ -47,3 +47,4 @@ export const FilmAPI = createApi({
         }),
     }),
 });
+export const { useFetchAllCategoriesQuery } = FilmAPI;

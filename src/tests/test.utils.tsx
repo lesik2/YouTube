@@ -3,7 +3,6 @@ import React, { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import { render as rtlRender, RenderOptions } from '@testing-library/react';
 import { combineReducers, configureStore, EmptyObject, EnhancedStore, PreloadedState } from '@reduxjs/toolkit';
-
 // import your reducers
 import ThemeSlice from '../store/reducers/ThemeSlice';
 import FilterParamsSlice from '../store/reducers/FilterParamsSlice';

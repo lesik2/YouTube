@@ -1,18 +1,17 @@
 // eslint-disable-next-line no-undef
 module.exports = {
-    parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+    parser: '@typescript-eslint/parser',
     extends: [
-        'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
+        'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'eslint:recommended',
         'plugin:prettier/recommended',
-        // Uses the recommended rules from @typescript-eslint/eslint-plugin
     ],
     parserOptions: {
-        ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-        sourceType: 'module', // Allows for the use of imports
+        ecmaVersion: 2018,
+        sourceType: 'module',
         ecmaFeatures: {
-            jsx: true, // Allows for the parsing of JSX
+            jsx: true,
         },
     },
     rules: {
@@ -33,7 +32,7 @@ module.exports = {
     },
     settings: {
         react: {
-            version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+            version: 'detect',
         },
     },
 };
