@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface CategoryState {
+export interface FilterParamsState {
     category: string;
     search: string;
 }
-const initialState: CategoryState = {
+const initialState: FilterParamsState = {
     category: 'All',
     search: '',
 };

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { SearchButton, SearchInput, SearchWrapper } from './styled';
 import searchIcon from '@assets/icons/searchIcon.svg';
-import { useAppDispatch } from '@hooks/redux';
-import { setSearch, changeCategory } from '@store/reducers/FilterParamsSlice';
+import { useAppDispatch } from '../../hooks/redux';
+import { setSearch, changeCategory } from '../../store/reducers/FilterParamsSlice';
 
 const SearchFilm = () => {
     const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ const SearchFilm = () => {
         setValue('');
     };
     return (
-        <SearchWrapper onSubmit={handleSubmit}>
+        <SearchWrapper data-testid="search-film" onSubmit={handleSubmit}>
             <SearchInput placeholder="Search" value={value} onChange={handleInput} />
             <SearchButton type="submit">
                 <img src={searchIcon} alt="search icon" />

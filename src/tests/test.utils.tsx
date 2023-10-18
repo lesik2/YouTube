@@ -2,10 +2,11 @@
 import React, { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import { render as rtlRender, RenderOptions } from '@testing-library/react';
-import { configureStore, EmptyObject, EnhancedStore, PreloadedState } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, EmptyObject, EnhancedStore, PreloadedState } from '@reduxjs/toolkit';
 
 // import your reducers
-import ThemeReducer from '../store/reducers/ThemeSlice';
+import ThemeSlice from '../store/reducers/ThemeSlice';
+import FilterParamsSlice from '../store/reducers/FilterParamsSlice';
 import type { RootState } from '../store/index';
 
 // ReducerTypes is just a grouping of each slice type,
@@ -13,8 +14,7 @@ import type { RootState } from '../store/index';
 // With this, you can define the type for your store.
 // The type of a configureStore() is called EnhancedStore,
 // which in turn receives the store state as a generic (the same from store.getState()).
-type reducers = 'themeReducer';
-type ReducerTypes = Pick<RootState, reducers>;
+type ReducerTypes = Pick<RootState, 'themeReducer' | 'filterParamsReducer'>;
 type TStore = EnhancedStore<ReducerTypes>;
 
 type CustomRenderOptions = {
@@ -28,9 +28,10 @@ function render(ui: ReactElement, options?: CustomRenderOptions) {
     const store =
         options?.store ||
         configureStore({
-            reducer: {
-                themeReducer: ThemeReducer,
-            },
+            reducer: combineReducers({
+                themeReducer: ThemeSlice,
+                filterParamsReducer: FilterParamsSlice,
+            }),
             preloadedState,
         });
 
