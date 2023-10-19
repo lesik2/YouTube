@@ -45,7 +45,7 @@ const FilmsContainer = () => {
     };
     return (
         <Wrapper>
-            <FilmWrapper>
+            <FilmWrapper className="film-wrapper">
                 {(isLoading || isFetching) &&
                     limit === FILMS_PER_PAGE &&
                     Array(FILMS_PER_PAGE)

@@ -9,7 +9,7 @@ import { Wrapper } from './styled';
 const MainPage: React.FC = () => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     return (
-        <Wrapper $DarkTheme={isDarkTheme}>
+        <Wrapper data-cy="main-page" $DarkTheme={isDarkTheme}>
             <Header />
             <Categories />
             <FilmsContainer />

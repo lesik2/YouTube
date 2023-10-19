@@ -18,8 +18,8 @@ const SearchFilm = () => {
     };
     return (
         <SearchWrapper data-testid="search-film" onSubmit={handleSubmit}>
-            <SearchInput placeholder="Search" value={value} onChange={handleInput} />
-            <SearchButton type="submit">
+            <SearchInput data-cy="search-input" type="text" placeholder="Search" value={value} onChange={handleInput} />
+            <SearchButton data-cy="submit" type="submit">
                 <img src={searchIcon} alt="search icon" />
             </SearchButton>
         </SearchWrapper>
