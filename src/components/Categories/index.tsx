@@ -1,11 +1,11 @@
 import React from 'react';
 import { AllFilmsLink, CategoryLink, Wrapper, Error } from './styled';
-import { FilmAPI } from '@services/FilmService';
+import { useFetchAllCategoriesQuery } from '@services/FilmService';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeCategory, setSearch } from '../../store/reducers/FilterParamsSlice';
 
 const Categories: React.FC = () => {
-    const { data: categories, error, isLoading } = FilmAPI.useFetchAllCategoriesQuery('genre');
+    const { data, error, isLoading } = useFetchAllCategoriesQuery('genre');
     const categoryState = useAppSelector((state) => state.filterParamsReducer.category);
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const dispatch = useAppDispatch();
@@ -23,14 +23,15 @@ const Categories: React.FC = () => {
                     .fill('')
                     .map((item, index) => <CategoryLink key={index}>{item}</CategoryLink>)}
             {error && <Error>Something went wrong</Error>}
-            {categories && (
+            {data && (
                 <>
                     <AllFilmsLink data-cy="all-link" $active={categoryState === 'All'} onClick={handleClick}>
                         All
                     </AllFilmsLink>
-                    {categories?.slice(0, 6).map((category, index) => (
+                    {data?.slice(0, 6).map((category, index) => (
                         <CategoryLink
                             data-cy={`${index}-category`}
+                            data-testid={`${index}-category`}
                             $active={categoryState === category.name}
                             onClick={handleClick}
                             key={index}>

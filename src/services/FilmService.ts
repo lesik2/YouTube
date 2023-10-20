@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IFilm } from '../models/IFilm';
+import { IFilm } from '@models/IFilm';
 export interface IParams {
     page: number;
     ['genres.name']: string | undefined;

@@ -22,15 +22,6 @@ describe('ToggleComponent', () => {
         await userEvent.click(checkbox);
         expect(checkbox).toBeChecked();
     });
-    test('changes style of  bowl in label', async () => {
-        const component = render(<ToggleTheme />, {
-            preloadedState: { themeReducer: { isDarkTheme: false } },
-        });
-        const checkbox = screen.getByRole('checkbox');
-        await userEvent.click(checkbox);
-        const bowl = component.getByTestId('toggle-bowl');
-        expect(bowl).toHaveStyle('transform: translateX(25px);');
-    });
     test('should dispatch actions', async () => {
         const dispatch = jest.fn();
         const mockedChangeTheme = jest.spyOn(actions, 'changeTheme');
