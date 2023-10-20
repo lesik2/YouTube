@@ -29,6 +29,6 @@
           "@components/*": ["src/components/*"],
         }
     },
-    "include": ["src/components","custom.d.ts","src/tests"],
+    "include": ["src","custom.d.ts","cypress",],
     "exclude": ["node_modules"],
 }

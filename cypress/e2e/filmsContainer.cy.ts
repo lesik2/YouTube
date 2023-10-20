@@ -1,10 +1,11 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
 /// <reference types="cypress" />
 // @ts-check
+import { FILMS_PER_PAGE } from '@constants/index';
 describe('filmsContainer component', () => {
-    it('filmsContainer have 16 films', () => {
+    it(`filmsContainer have ${FILMS_PER_PAGE} films`, () => {
         cy.visit('/');
-        cy.get('.film-wrapper>div').should('have.length', 16);
+        cy.get('.film-wrapper>div').should('have.length', FILMS_PER_PAGE);
     });
     it('show infinity loader after clicking on Show More button', () => {
         cy.visit('/');
@@ -16,6 +17,6 @@ describe('filmsContainer component', () => {
         cy.visit('/');
         cy.get('[data-cy="button-films"]').should('have.text', 'Show More');
         cy.get('[data-cy="button-films"]').click();
-        cy.get('.film-wrapper>div').should('have.length', 32);
+        cy.get('.film-wrapper>div').should('have.length', FILMS_PER_PAGE * 2);
     });
 });

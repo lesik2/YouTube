@@ -4,6 +4,7 @@ import { render, cleanup, screen } from '../test.utils';
 import * as Hooks from '../../hooks/redux';
 import * as actions from '../../store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
+import { LINKS_AMOUNT } from '../../constants/index';
 
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 const hookMocked = jest.fn();
@@ -76,9 +77,9 @@ describe('Categories', () => {
         });
         const component = render(<Categories />);
         const categories = component.getByTestId('categories');
-        expect(categories.children.length).toBe(7);
+        expect(categories.children.length).toBe(LINKS_AMOUNT);
     });
-    test('should show 7 categories', () => {
+    test(`should show ${LINKS_AMOUNT} categories`, () => {
         hookMocked.mockReturnValueOnce({
             data: mockData,
             isLoading: false,
@@ -88,7 +89,7 @@ describe('Categories', () => {
         });
         const component = render(<Categories />);
         const categories = component.getByTestId('categories');
-        expect(categories.children.length).toBe(7);
+        expect(categories.children.length).toBe(LINKS_AMOUNT);
     });
     test('should dispatch actions', async () => {
         hookMocked.mockReturnValueOnce({
