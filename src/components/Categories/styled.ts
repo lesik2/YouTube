@@ -39,12 +39,12 @@ export const AllFilmsLink = styled.a<{ $active?: boolean }>`
     font-style: normal;
     line-height: normal;
     user-select: none;
-    background: ${(props) => (props.$active ? '#000000' : '#F0F0F0')};
+    background-color: ${(props) => (props.$active ? '#000000' : '#F0F0F0')};
     color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
     &:hover {
         color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
         text-decoration: none;
-        background: ${(props) => (props.$active ? '#000000' : '#cccccc')};
+        background-color: ${(props) => (props.$active ? '#000000' : '#cccccc')};
         transition: background 0.2s;
     }
 `;
@@ -62,13 +62,13 @@ export const CategoryLink = styled.a<{ $active?: boolean }>`
     width: 91px;
     height: 30px;
     user-select: none;
-    background: ${(props) => (props.$active ? '#000000' : '#F0F0F0')};
+    background-color: ${(props) => (props.$active ? '#000000' : '#F0F0F0')};
     color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
     transition: background 0.2s;
     &:hover {
         color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
         text-decoration: none;
-        background: ${(props) => (props.$active ? '#000000' : '#cccccc')};
+        background-color: ${(props) => (props.$active ? '#000000' : '#cccccc')};
     }
 `;
 export const Error = styled.h1`

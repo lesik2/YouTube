@@ -52,8 +52,9 @@ const FilmsContainer = () => {
                         .fill('')
                         .map((item, index) => <SkeletonLoader key={index} />)}
                 {films?.docs &&
-                    films.docs.map((film) => (
+                    films.docs.map((film, index) => (
                         <Film
+                            data-cy={`${index}-film`}
                             key={film.id}
                             title={film.enName ?? film.name}
                             image={film.poster === undefined ? DEFAULT_POSTER : film.poster.url}
@@ -66,7 +67,9 @@ const FilmsContainer = () => {
             {films?.docs.length === 0 && <NotFound />}
             {error && <Error>Something went wrong</Error>}
             {isFetching && limit !== FILMS_PER_PAGE && <InfinityLoader />}
-            <Button onClick={handleClick}>Show More</Button>
+            <Button data-cy="button-films" onClick={handleClick}>
+                Show More
+            </Button>
         </Wrapper>
     );
 };

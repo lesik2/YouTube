@@ -14,7 +14,7 @@ const ToggleTheme = () => {
         <Wrapper data-testid="toggle-theme">
             <ToggleThemeInput onChange={handleOnChange} checked={isDarkTheme} type="checkbox" id={`${id}-themeInput`} />
             <ToggleThemeLabel className="theme-label" htmlFor={`${id}-themeInput`}>
-                <ThemeBowl data-testid="toggle-bowl" className="theme-bowl" />
+                <ThemeBowl data-cy="toggle-bowl" data-testid="toggle-bowl" className="theme-bowl" />
             </ToggleThemeLabel>
         </Wrapper>
     );

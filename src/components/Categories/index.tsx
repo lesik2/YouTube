@@ -17,7 +17,7 @@ const Categories: React.FC = () => {
         }
     };
     return (
-        <Wrapper data-testid="categories" $DarkTheme={isDarkTheme}>
+        <Wrapper data-cy="categories" data-testid="categories" $DarkTheme={isDarkTheme}>
             {isLoading &&
                 Array(7)
                     .fill('')
@@ -25,11 +25,15 @@ const Categories: React.FC = () => {
             {error && <Error>Something went wrong</Error>}
             {categories && (
                 <>
-                    <AllFilmsLink $active={categoryState === 'All'} onClick={handleClick}>
+                    <AllFilmsLink data-cy="all-link" $active={categoryState === 'All'} onClick={handleClick}>
                         All
                     </AllFilmsLink>
                     {categories?.slice(0, 6).map((category, index) => (
-                        <CategoryLink $active={categoryState === category.name} onClick={handleClick} key={index}>
+                        <CategoryLink
+                            data-cy={`${index}-category`}
+                            $active={categoryState === category.name}
+                            onClick={handleClick}
+                            key={index}>
                             {category.name}
                         </CategoryLink>
                     ))}
