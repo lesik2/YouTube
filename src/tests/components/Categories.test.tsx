@@ -4,7 +4,7 @@ import { render, cleanup, screen } from '../test.utils';
 import * as Hooks from '../../hooks/redux';
 import * as actions from '../../store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
-import { LINKS_AMOUNT } from '../../constants/index';
+import { LINKS_AMOUNT, ERROR_MESSAGE } from '../../constants/index';
 
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 const hookMocked = jest.fn();
@@ -37,7 +37,7 @@ const mockData = [
         slug: 'detektiv',
     },
 ];
-describe('Categories', () => {
+describe('Categories component', () => {
     afterEach(() => {
         cleanup();
     });
@@ -65,7 +65,7 @@ describe('Categories', () => {
         });
         render(<Categories />);
         const error = screen.getByRole('heading');
-        expect(error).toHaveTextContent('Something went wrong');
+        expect(error).toHaveTextContent(ERROR_MESSAGE);
     });
     test('should show skeleton loader while pending', () => {
         hookMocked.mockReturnValueOnce({

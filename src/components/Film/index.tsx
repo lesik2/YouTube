@@ -17,10 +17,11 @@ interface IFilmComponent {
     director: string;
     title: string;
     video: string;
+    id: number;
 }
 import { useAppSelector } from '@hooks/redux';
 import Modal from '../Modal/index';
-const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video }) => {
+const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video, id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const getRandomIcon = useMemo(() => {
@@ -36,7 +37,7 @@ const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video })
     };
     return (
         <Wrapper>
-            <ImageFilmWrapper $image={image} onClick={handleOpen} />
+            <ImageFilmWrapper data-cy={`${id}-image-film`} $image={image} onClick={handleOpen} />
             <FilmInfoWrapper>
                 <ImageAccountWrapper>
                     <img src={getRandomIcon} alt="icon of account" />

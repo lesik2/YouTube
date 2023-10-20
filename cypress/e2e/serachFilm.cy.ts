@@ -2,7 +2,7 @@
 /// <reference types="cypress" />
 // @ts-check
 describe('searchFilm component', () => {
-    it('show films that was found after clicking on button', () => {
+    it('show films that was found after clicking on search button', () => {
         cy.visit('/');
         cy.get('[data-cy="search-input"]').type('Spider Man').should('have.value', 'Spider Man');
         cy.get('[data-cy="submit"]').click();

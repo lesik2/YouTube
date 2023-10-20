@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Wrapper, FilmWrapper, Error } from './styled';
-import { FilmAPI } from '@services/FilmService';
+import { useFetchAllFilmsQuery } from '@services/FilmService';
 import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
-import { useAppSelector } from '@hooks/redux';
+import { useAppSelector } from '../../hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE } from '@constants/index';
-import { IFilm } from '@models/IFilm';
+import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE, ERROR_MESSAGE } from '../../constants/index';
+import { IFilm } from '../../models/IFilm';
 import NotFound from '../NotFound';
 
 const FilmsContainer = () => {
     const [limit, setLimit] = useState(FILMS_PER_PAGE);
     const categoryState = useAppSelector((state) => state.filterParamsReducer.category);
     const searchState = useAppSelector((state) => state.filterParamsReducer.search);
-    const {
-        data: films,
-        isLoading,
-        error,
-        isFetching,
-    } = FilmAPI.useFetchAllFilmsQuery({
+    const { data, isLoading, error, isFetching } = useFetchAllFilmsQuery({
         page: 1,
         limit: limit,
         'genres.name': categoryState === 'All' || categoryState === '' ? undefined : categoryState,
@@ -44,17 +39,18 @@ const FilmsContainer = () => {
         return result === '' ? SRC : result;
     };
     return (
-        <Wrapper>
-            <FilmWrapper className="film-wrapper">
+        <Wrapper data-testid="films-container">
+            <FilmWrapper data-testid="film-wrapper" className="film-wrapper">
                 {(isLoading || isFetching) &&
                     limit === FILMS_PER_PAGE &&
                     Array(FILMS_PER_PAGE)
                         .fill('')
                         .map((item, index) => <SkeletonLoader key={index} />)}
-                {films?.docs &&
-                    films.docs.map((film, index) => (
+                {data?.docs &&
+                    data.docs.map((film, index) => (
                         <Film
                             data-cy={`${index}-film`}
+                            id={film.id}
                             key={film.id}
                             title={film.enName ?? film.name}
                             image={film.poster === undefined ? DEFAULT_POSTER : film.poster.url}
@@ -64,8 +60,8 @@ const FilmsContainer = () => {
                         />
                     ))}
             </FilmWrapper>
-            {films?.docs.length === 0 && <NotFound />}
-            {error && <Error>Something went wrong</Error>}
+            {data?.docs.length === 0 && <NotFound />}
+            {error && <Error>{ERROR_MESSAGE}</Error>}
             {isFetching && limit !== FILMS_PER_PAGE && <InfinityLoader />}
             <Button data-cy="button-films" onClick={handleClick}>
                 Show More

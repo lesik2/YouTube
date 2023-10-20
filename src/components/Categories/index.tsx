@@ -3,6 +3,7 @@ import { AllFilmsLink, CategoryLink, Wrapper, Error } from './styled';
 import { useFetchAllCategoriesQuery } from '@services/FilmService';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeCategory, setSearch } from '../../store/reducers/FilterParamsSlice';
+import { ERROR_MESSAGE } from '@//constants';
 
 const Categories: React.FC = () => {
     const { data, error, isLoading } = useFetchAllCategoriesQuery('genre');
@@ -22,7 +23,7 @@ const Categories: React.FC = () => {
                 Array(7)
                     .fill('')
                     .map((item, index) => <CategoryLink key={index}>{item}</CategoryLink>)}
-            {error && <Error>Something went wrong</Error>}
+            {error && <Error>{ERROR_MESSAGE}</Error>}
             {data && (
                 <>
                     <AllFilmsLink data-cy="all-link" $active={categoryState === 'All'} onClick={handleClick}>

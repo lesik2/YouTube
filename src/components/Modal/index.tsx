@@ -11,7 +11,7 @@ const Modal: React.FC<IModal> = ({ onClose, src }) => {
     const portal = document.getElementById('portal');
     return portal
         ? ReactDOM.createPortal(
-              <Wrapper>
+              <Wrapper data-cy={`modal`}>
                   <Content>
                       <IFrame allowFullScreen allow="autoplay" src={`${src}?autoplay=1&fs=1`}></IFrame>
                       <Close onClick={onClose}>

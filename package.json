@@ -76,6 +76,8 @@
         "@reduxjs/toolkit": "^1.9.7",
         "@types/react-redux": "^7.1.27",
         "axios": "^1.5.1",
+        "babel-plugin-require-context-hook": "^1.0.0",
+        "babel-plugin-transform-require-context": "^0.1.1",
         "eslint": "^8.51.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

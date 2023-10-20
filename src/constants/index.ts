@@ -5,3 +5,5 @@ export const MAX_WIDTH_MOBILE = '460px';
 export const DEFAULT_POSTER = 'https://st.kp.yandex.net/images/film_big/838.jpg';
 export const FILMS_PER_PAGE = 16;
 export const LINKS_AMOUNT = 7;
+export const ID_OF_FILM = '535341-image-film';
+export const ERROR_MESSAGE = 'Something went wrong';
