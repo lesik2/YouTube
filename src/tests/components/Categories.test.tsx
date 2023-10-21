@@ -1,10 +1,10 @@
 import React from 'react';
 import Categories from 'src/components/Categories/index';
 import { render, cleanup, screen } from '../test.utils';
-import * as Hooks from '../../hooks/redux';
-import * as actions from '../../store/reducers/FilterParamsSlice';
+import * as Hooks from '@hooks/redux';
+import * as actions from '@store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
-import { LINKS_AMOUNT, ERROR_MESSAGE } from '../../constants/index';
+import { LINKS_AMOUNT, ERROR_MESSAGE } from '@constants/index';
 
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 const hookMocked = jest.fn();

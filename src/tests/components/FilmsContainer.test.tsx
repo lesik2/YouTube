@@ -2,12 +2,12 @@
 import React from 'react';
 import FilmsContainer from 'src/components/FilmsContainer/index';
 import { render, cleanup, screen } from '../test.utils';
-import { ERROR_MESSAGE, FILMS_PER_PAGE } from '../../constants/index';
+import { ERROR_MESSAGE, FILMS_PER_PAGE } from '@constants/index';
 const hookMocked = jest.fn();
-jest.mock('../../services/FilmService', () => ({
+jest.mock('@services/FilmService', () => ({
     useFetchAllFilmsQuery: () => hookMocked(),
 }));
-jest.mock('../../components/Film/index.tsx', () => {
+jest.mock('@components/Film/index.tsx', () => {
     const ComponentToMock = () => <div data-testid="film" />;
     return ComponentToMock;
 });

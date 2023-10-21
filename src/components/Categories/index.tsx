@@ -1,8 +1,8 @@
 import React from 'react';
 import { AllFilmsLink, CategoryLink, Wrapper, Error } from './styled';
 import { useFetchAllCategoriesQuery } from '@services/FilmService';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { changeCategory, setSearch } from '../../store/reducers/FilterParamsSlice';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
 import { ERROR_MESSAGE } from '@//constants';
 
 const Categories: React.FC = () => {

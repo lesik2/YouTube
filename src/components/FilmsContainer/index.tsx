@@ -3,9 +3,9 @@ import { Button, Wrapper, FilmWrapper, Error } from './styled';
 import { useFetchAllFilmsQuery } from '@services/FilmService';
 import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '@hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE, ERROR_MESSAGE } from '../../constants/index';
+import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE, ERROR_MESSAGE } from '@constants/index';
 import { IFilm } from '../../models/IFilm';
 import NotFound from '../NotFound';
 

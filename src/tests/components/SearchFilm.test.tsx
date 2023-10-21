@@ -1,13 +1,13 @@
 import React from 'react';
 import SearchFilm from 'src/components/SearchFilm/index';
 import { render, cleanup, screen, fireEvent } from '../test.utils';
-import * as Hooks from '../../hooks/redux';
-import * as actions from '../../store/reducers/FilterParamsSlice';
+import * as Hooks from '@hooks/redux';
+import * as actions from '@store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
 
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 
-jest.mock('../../components/ElasticSearch/index.tsx', () => {
+jest.mock('@components/ElasticSearch/index.tsx', () => {
     const ComponentToMock = () => <div />;
     return ComponentToMock;
 });

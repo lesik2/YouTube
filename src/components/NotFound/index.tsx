@@ -1,7 +1,7 @@
 import React from 'react';
 import notFound from '@assets/icons/notFound.svg';
 import { ImageWrapper, Info, Wrapper } from './styled';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '@hooks/redux';
 import { NOTHING_FOUND_MESSAGE, ANOTHER_REQUEST_MESSAGE } from '@//constants';
 
 const NotFound = () => {

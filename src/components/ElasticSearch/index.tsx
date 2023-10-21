@@ -1,8 +1,8 @@
 import React from 'react';
 import { List, Wrapper } from './styled';
 import { useFetchAllNamesQuery } from '@services/FilmService';
-import { useAppDispatch } from '../../hooks/redux';
-import { setSearch, changeCategory } from '../../store/reducers/FilterParamsSlice';
+import { useAppDispatch } from '@hooks/redux';
+import { setSearch, changeCategory } from '@store/reducers/FilterParamsSlice';
 interface IElasticSearch {
     value: string;
     setValue: React.Dispatch<React.SetStateAction<string>>;
