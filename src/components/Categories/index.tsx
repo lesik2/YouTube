@@ -11,7 +11,7 @@ const Categories: React.FC = () => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const dispatch = useAppDispatch();
     const handleClick = (event: React.MouseEvent) => {
-        const nameOfCategory: string | null = event.currentTarget.textContent;
+        const nameOfCategory: string | null = event.currentTarget.getAttribute('data-name');
         if (nameOfCategory) {
             dispatch(changeCategory(nameOfCategory));
             dispatch(setSearch(''));
@@ -26,7 +26,11 @@ const Categories: React.FC = () => {
             {error && <Error>{ERROR_MESSAGE}</Error>}
             {data && (
                 <>
-                    <AllFilmsLink data-cy="all-link" $active={categoryState === 'All'} onClick={handleClick}>
+                    <AllFilmsLink
+                        data-name="All"
+                        data-cy="all-link"
+                        $active={categoryState === 'All'}
+                        onClick={handleClick}>
                         All
                     </AllFilmsLink>
                     {data?.slice(0, 6).map((category, index) => (
@@ -35,8 +39,9 @@ const Categories: React.FC = () => {
                             data-testid={`${index}-category`}
                             $active={categoryState === category.name}
                             onClick={handleClick}
-                            key={index}>
-                            {category.name}
+                            key={index}
+                            data-name={category.name}>
+                            {category.slug}
                         </CategoryLink>
                     ))}
                 </>
