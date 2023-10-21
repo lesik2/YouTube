@@ -32,16 +32,24 @@ const Footer = () => {
                 </WrapperText>
                 <WrapperLinks>
                     <ImageWrapper>
-                        <img alt="facebook" src={facebook} />
+                        <a href="/">
+                            <img alt="facebook" src={facebook} />
+                        </a>
                     </ImageWrapper>
                     <ImageWrapper>
-                        <img alt="twitter" src={twitter} />
+                        <a href="/">
+                            <img alt="twitter" src={twitter} />
+                        </a>
                     </ImageWrapper>
                     <ImageWrapper>
-                        <img alt="instagram" src={instagram} />
+                        <a href="/">
+                            <img alt="instagram" src={instagram} />
+                        </a>
                     </ImageWrapper>
                     <ImageWrapper>
-                        <img alt="linkedin" src={linkedin} />
+                        <a href="/">
+                            <img alt="linkedin" src={linkedin} />
+                        </a>
                     </ImageWrapper>
                 </WrapperLinks>
                 <FooterText $DarkTheme={isDarkTheme}>2023 Modsen company</FooterText>

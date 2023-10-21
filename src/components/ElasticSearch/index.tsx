@@ -19,10 +19,11 @@ const ElasticSearch: React.FC<IElasticSearch> = ({ value, setValue }) => {
         setValue('');
     };
     return (
-        <Wrapper>
-            {data?.docs &&
+        <Wrapper data-cy="elastic-search">
+            {data &&
+                data?.docs &&
                 data.docs.map((item, index) => (
-                    <List onClick={handleClick} key={index}>
+                    <List data-cy={`${index}-list`} onClick={handleClick} key={index}>
                         {item.enName}
                     </List>
                 ))}

@@ -10,7 +10,10 @@ import {
     Wrapper,
     Year,
 } from './styled';
+import { useAppSelector } from '@hooks/redux';
+import Modal from '../Modal/index';
 const images = require.context('@assets/images', true);
+
 interface IFilmComponent {
     image: string;
     year: number;
@@ -19,8 +22,6 @@ interface IFilmComponent {
     video: string;
     id: number;
 }
-import { useAppSelector } from '@hooks/redux';
-import Modal from '../Modal/index';
 const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video, id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);

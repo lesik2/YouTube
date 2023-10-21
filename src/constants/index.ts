@@ -7,3 +7,6 @@ export const FILMS_PER_PAGE = 16;
 export const LINKS_AMOUNT = 7;
 export const ID_OF_FILM = '535341-image-film';
 export const ERROR_MESSAGE = 'Something went wrong';
+export const NOTHING_FOUND_MESSAGE = 'Nothing was found';
+export const ANOTHER_REQUEST_MESSAGE = 'Try another request';
+export const ERROR_BOUNDARY_MESSAGE = 'There was an error';

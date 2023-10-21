@@ -6,10 +6,15 @@ import * as actions from '../../store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
 
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
-afterEach(() => {
-    cleanup();
+
+jest.mock('../../components/ElasticSearch/index.tsx', () => {
+    const ComponentToMock = () => <div />;
+    return ComponentToMock;
 });
 describe('SearchFilm', () => {
+    afterEach(() => {
+        cleanup();
+    });
     test('should render SearchFilm component', () => {
         const component = render(<SearchFilm />);
         expect(component.getByTestId('search-film')).toBeInTheDocument();
@@ -40,8 +45,8 @@ describe('SearchFilm', () => {
         render(<SearchFilm />);
         const button = screen.getByRole('button');
         const input: HTMLInputElement = screen.getByRole('textbox');
-        fireEvent.change(input, { target: { value: 'spider man' } });
+        fireEvent.change(input, { target: { value: 'spider' } });
         await userEvent.click(button);
-        expect(mockedSetSearch).toHaveBeenCalledWith('spider man');
+        expect(mockedSetSearch).toHaveBeenCalledWith('spider');
     });
 });

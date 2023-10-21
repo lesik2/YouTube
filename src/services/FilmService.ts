@@ -22,7 +22,7 @@ export interface IResultNames {
     limit: number;
     pages: number;
 }
-const API_KEY = 'EZ2XK87-S3Z47VY-J7XMKBT-934BD4C';
+const API_KEY = 'HPA43BP-EBE4V0V-QSZH713-K5WHQXX';
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),

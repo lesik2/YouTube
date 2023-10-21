@@ -107,7 +107,7 @@ describe('Categories component', () => {
         const linkAnime = screen.getByTestId('0-category');
         await userEvent.click(linkAnime);
         expect(dispatch).toHaveBeenCalledTimes(2);
-        expect(mockedChangeCategory).toHaveBeenCalledWith(linkAnime.textContent);
+        expect(mockedChangeCategory).toHaveBeenCalledWith(linkAnime.getAttribute('data-name'));
         expect(mockedSetSearch).toHaveBeenCalledWith('');
     });
 });
