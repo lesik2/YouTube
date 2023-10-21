@@ -15,7 +15,14 @@ export interface IResultCategories {
     name: string;
     slug: string;
 }
-const API_KEY = '7V3T0KW-YNMM2QY-JKD4755-CXZB0J9';
+export interface IResultNames {
+    docs: { enName: string }[];
+    total: number;
+    page: number;
+    limit: number;
+    pages: number;
+}
+const API_KEY = 'EZ2XK87-S3Z47VY-J7XMKBT-934BD4C';
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),
@@ -29,8 +36,8 @@ export const FilmAPI = createApi({
                     'X-API-KEY': API_KEY,
                 },
                 params: {
-                    [param['genres.name'] === undefined ? 'genre' : 'genres.name']: param['genres.name'],
-                    [param.search === '' ? 'Name' : 'enName']: param.search,
+                    [param['genres.name'] === undefined ? '' : 'genres.name']: param['genres.name'],
+                    [param.search === '' ? '' : 'enName']: param.search,
                     page: param.page,
                     limit: param.limit,
                 },
@@ -45,6 +52,18 @@ export const FilmAPI = createApi({
                 },
             }),
         }),
+        fetchAllNames: build.query<IResultNames, string>({
+            query: (param: string) => ({
+                url: '/v1.3/movie?selectFields=enName&page=1&limit=10',
+                headers: {
+                    'X-API-KEY': API_KEY,
+                    accept: 'application/json',
+                },
+                params: {
+                    enName: param,
+                },
+            }),
+        }),
     }),
 });
-export const { useFetchAllCategoriesQuery, useFetchAllFilmsQuery } = FilmAPI;
+export const { useFetchAllCategoriesQuery, useFetchAllFilmsQuery, useFetchAllNamesQuery } = FilmAPI;

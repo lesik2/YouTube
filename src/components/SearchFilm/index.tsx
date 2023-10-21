@@ -3,6 +3,7 @@ import { SearchButton, SearchInput, SearchWrapper } from './styled';
 import searchIcon from '@assets/icons/searchIcon.svg';
 import { useAppDispatch } from '../../hooks/redux';
 import { setSearch, changeCategory } from '../../store/reducers/FilterParamsSlice';
+import ElasticSearch from '../ElasticSearch';
 
 const SearchFilm = () => {
     const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ const SearchFilm = () => {
             <SearchButton data-cy="submit" type="submit">
                 <img src={searchIcon} alt="search icon" />
             </SearchButton>
+            <ElasticSearch value={value} setValue={setValue} />
         </SearchWrapper>
     );
 };

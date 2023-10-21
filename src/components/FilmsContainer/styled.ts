@@ -57,5 +57,6 @@ export const Button = styled.button`
     }
 `;
 export const Error = styled.h1`
-    use-select: none;
+    user-select: none;
+    text-align: center;
 `;

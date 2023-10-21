@@ -4,6 +4,7 @@ export const SearchWrapper = styled.form`
     align-items: center;
     border: none;
     outline: none;
+    position: relative;
 `;
 export const SearchButton = styled.button`
     display: flex;

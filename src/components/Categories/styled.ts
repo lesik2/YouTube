@@ -72,5 +72,6 @@ export const CategoryLink = styled.a<{ $active?: boolean }>`
     }
 `;
 export const Error = styled.h1`
-    use-select: none;
+    user-select: none;
+    text-align: center;
 `;
