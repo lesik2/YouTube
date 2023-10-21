@@ -1,7 +1,7 @@
 {
     "name": "youtube",
     "version": "1.0.0",
-    "description": "",
+    "description": "Application for searching films and watching trailers",
     "main": "index.js",
     "scripts": {
         "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
@@ -18,8 +18,8 @@
     "resolutions": {
         "styled-components": "^5"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": ["youtube","films","trailers","categories"],
+    "author": "Alexey Pukhalskiy",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.23.0",
