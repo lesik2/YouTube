@@ -12,8 +12,7 @@
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
         "test": "jest",
         "test:cypress": "start-server-and-test start http://localhost:9000 cypress",
-        "cypress": "cypress open",
-        "eject": "react-scripts eject"
+        "cypress": "cypress open"
     },
     "resolutions": {
         "styled-components": "^5"
