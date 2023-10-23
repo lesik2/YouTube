@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import themeReducer from './reducers/ThemeSlice';
 import filterParamsReducer from './reducers/FilterParamsSlice';
 import { FilmAPI } from '@services/FilmService';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 const rootReducer = combineReducers({
     themeReducer,
@@ -9,12 +10,10 @@ const rootReducer = combineReducers({
     [FilmAPI.reducerPath]: FilmAPI.reducer,
 });
 
-export const setupStore = () => {
-    return configureStore({
-        reducer: rootReducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(FilmAPI.middleware),
-    });
-};
+export const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(FilmAPI.middleware),
+});
+setupListeners(store.dispatch);
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = typeof store.dispatch;

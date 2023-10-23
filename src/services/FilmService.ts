@@ -22,10 +22,11 @@ export interface IResultNames {
     limit: number;
     pages: number;
 }
-const API_KEY = 'KHVMS0C-5YK4Y7B-HZX76XJ-B84S1A7';
+const API_KEY = 'Q1ZFRGP-5NKMRRA-J4ZTTFR-W5RDZBQ';
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),
+    refetchOnFocus: true,
     endpoints: (build) => ({
         fetchAllFilms: build.query<IResultFilms, IParams>({
             query: (param: IParams) => ({
@@ -52,7 +53,7 @@ export const FilmAPI = createApi({
                 },
             }),
         }),
-        fetchAllNames: build.query<IResultNames, string>({
+        fetchAllNames: build.query<{ enName: string }[], string>({
             query: (param: string) => ({
                 url: '/v1.3/movie?selectFields=enName&page=1&limit=10',
                 headers: {
@@ -63,6 +64,7 @@ export const FilmAPI = createApi({
                     enName: param,
                 },
             }),
+            transformResponse: (response: IResultNames) => response.docs,
         }),
     }),
 });

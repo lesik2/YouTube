@@ -46,7 +46,7 @@ const FilmsContainer = () => {
                     Array(FILMS_PER_PAGE)
                         .fill('')
                         .map((item, index) => <SkeletonLoader key={index} />)}
-                {data?.docs &&
+                {data &&
                     data.docs.map((film, index) => (
                         <Film
                             data-cy={`${index}-film`}

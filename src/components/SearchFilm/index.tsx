@@ -8,6 +8,7 @@ import ElasticSearch from '../ElasticSearch';
 const SearchFilm = () => {
     const dispatch = useAppDispatch();
     const [value, setValue] = useState('');
+    const [showSearch, setShowSearch] = useState(false);
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     };
@@ -15,7 +16,7 @@ const SearchFilm = () => {
         event.preventDefault();
         dispatch(setSearch(value));
         dispatch(changeCategory(''));
-        setValue('');
+        setShowSearch(false);
     };
     return (
         <SearchWrapper data-testid="search-film" onSubmit={handleSubmit}>
@@ -23,7 +24,7 @@ const SearchFilm = () => {
             <SearchButton data-cy="submit" type="submit">
                 <img src={searchIcon} alt="search icon" />
             </SearchButton>
-            <ElasticSearch value={value} setValue={setValue} />
+            <ElasticSearch value={value} showSearch={showSearch} setShowSearch={setShowSearch} />
         </SearchWrapper>
     );
 };

@@ -48,7 +48,4 @@ export const List = styled.li`
         font-size: 13px;
         padding: 3px;
     }
-    @media (max-width: 300px) {
-        font-size: 12px;
-    }
 `;
