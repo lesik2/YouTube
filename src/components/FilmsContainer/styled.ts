@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { MAX_WIDTH_LAPTOP } from '../../constants/index';
 
 export const Wrapper = styled.section`
@@ -16,6 +17,7 @@ export const FilmWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(332px, 100%), 1fr));
     column-gap: 20px;
+    justify-items: center;
     row-gap: 30px;
     width: 100%;
     @media (max-width: ${MAX_WIDTH_LAPTOP}) {

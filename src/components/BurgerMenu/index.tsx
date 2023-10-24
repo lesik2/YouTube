@@ -1,7 +1,8 @@
 import React from 'react';
-import { Line, Wrapper } from './styled';
-import { useAppSelector } from '@hooks/redux';
 import { IBurgerMenu } from '@customTypes/index';
+import { useAppSelector } from '@hooks/redux';
+
+import { Line, Wrapper } from './styled';
 const BurgerMenu: React.FC<IBurgerMenu> = ({ isOpen, setIsOpen }) => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const handleClick = () => {

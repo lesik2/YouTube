@@ -1,7 +1,8 @@
 import React from 'react';
-import { Wrapper, Content } from './styled';
-import { useAppSelector } from '@hooks/redux';
 import { IMenu } from '@customTypes/index';
+import { useAppSelector } from '@hooks/redux';
+
+import { Content, Wrapper } from './styled';
 
 const Menu: React.FC<IMenu> = ({ children, isOpen, setIsOpen }) => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);

@@ -1,9 +1,10 @@
 import React from 'react';
-import { AllFilmsLink, CategoryLink, Wrapper, Error } from './styled';
-import { useFetchAllCategoriesQuery } from '@services/FilmService';
-import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
 import { ERROR_MESSAGE } from '@constants/index';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { useFetchAllCategoriesQuery } from '@services/FilmService';
+import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
+
+import { AllFilmsLink, CategoryLink, Error, Wrapper } from './styled';
 
 const Categories: React.FC = () => {
     const { data, error, isLoading } = useFetchAllCategoriesQuery('genre');

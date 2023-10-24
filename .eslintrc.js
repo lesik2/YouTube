@@ -8,6 +8,7 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:cypress/recommended',
     ],
+    plugins: ['simple-import-sort'],
     parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
@@ -25,6 +26,20 @@ module.exports = {
         'no-use-before-define': 'off',
         'max-len': ['warn', { code: 120 }],
         'react/jsx-props-no-spreading': 'off',
+        'simple-import-sort/imports': [
+            'error',
+            {
+                groups: [
+                    ['^react', '^@?\\w'],
+                    ['^(@|components)(/.*|$)'],
+                    ['^\\u0000'],
+                    ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+                    ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+                    ['^.+\\.?(css)$'],
+                ],
+            },
+        ],
+        'simple-import-sort/exports': 'error',
     },
     env: {
         browser: true,

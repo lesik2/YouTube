@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { SearchButton, SearchInput, SearchWrapper } from './styled';
 import searchIcon from '@assets/icons/searchIcon.svg';
 import { useAppDispatch } from '@hooks/redux';
-import { setSearch, changeCategory } from '@store/reducers/FilterParamsSlice';
+import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
+
 import ElasticSearch from '../ElasticSearch';
+
+import { SearchButton, SearchInput, SearchWrapper } from './styled';
 
 const SearchFilm = () => {
     const dispatch = useAppDispatch();
