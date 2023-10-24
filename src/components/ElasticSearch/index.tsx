@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { List, Wrapper } from './styled';
-import { useFetchAllNamesQuery } from '@services/FilmService';
-import { useAppDispatch } from '@hooks/redux';
-import { setSearch, changeCategory } from '@store/reducers/FilterParamsSlice';
-import { useDebounce } from '@hooks/debounce';
 import { IElasticSearch } from '@customTypes/index';
+import { useDebounce } from '@hooks/debounce';
+import { useAppDispatch } from '@hooks/redux';
+import { useFetchAllNamesQuery } from '@services/FilmService';
+import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
+
+import { List, Wrapper } from './styled';
 const ElasticSearch: React.FC<IElasticSearch> = ({ value, showSearch, setShowSearch }) => {
     const debounced = useDebounce(value);
     const { data } = useFetchAllNamesQuery(debounced, {
