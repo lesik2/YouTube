@@ -1,8 +1,9 @@
 import React from 'react';
 import notFound from '@assets/icons/notFound.svg';
-import { ImageWrapper, Info, Wrapper } from './styled';
+import { ANOTHER_REQUEST_MESSAGE, NOTHING_FOUND_MESSAGE } from '@constants/index';
 import { useAppSelector } from '@hooks/redux';
-import { NOTHING_FOUND_MESSAGE, ANOTHER_REQUEST_MESSAGE } from '@constants/index';
+
+import { ImageWrapper, Info, Wrapper } from './styled';
 
 const NotFound = () => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);

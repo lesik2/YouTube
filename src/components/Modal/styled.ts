@@ -1,5 +1,6 @@
-import { MAX_WIDTH_LAPTOP, MAX_WIDTH_MOBILE, MAX_WIDTH_TABLET } from '../../constants/index';
 import styled from 'styled-components';
+
+import { MAX_WIDTH_LAPTOP, MAX_WIDTH_MOBILE, MAX_WIDTH_TABLET } from '../../constants/index';
 
 export const Wrapper = styled.div`
     position: fixed;

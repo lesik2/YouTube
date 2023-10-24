@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { MAX_WIDTH_LAPTOP } from '../../constants/index';
 export const Wrapper = styled.div`
     width: 332px;

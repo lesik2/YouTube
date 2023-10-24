@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import { Provider } from 'react-redux';
-import { render as rtlRender, RenderOptions } from '@testing-library/react';
 import { combineReducers, configureStore, EmptyObject, EnhancedStore, PreloadedState } from '@reduxjs/toolkit';
+import { render as rtlRender, RenderOptions } from '@testing-library/react';
 
-import ThemeSlice from '../store/reducers/ThemeSlice';
-import FilterParamsSlice from '../store/reducers/FilterParamsSlice';
 import type { RootState } from '../store/index';
+import FilterParamsSlice from '../store/reducers/FilterParamsSlice';
+import ThemeSlice from '../store/reducers/ThemeSlice';
 
 type ReducerTypes = Pick<RootState, 'themeReducer' | 'filterParamsReducer'>;
 type TStore = EnhancedStore<ReducerTypes>;

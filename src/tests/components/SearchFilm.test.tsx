@@ -1,9 +1,10 @@
 import React from 'react';
-import SearchFilm from 'src/components/SearchFilm/index';
-import { render, cleanup, screen, fireEvent } from '../test.utils';
 import * as Hooks from '@hooks/redux';
 import * as actions from '@store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
+import SearchFilm from 'src/components/SearchFilm/index';
+
+import { cleanup, fireEvent, render, screen } from '../test.utils';
 
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 

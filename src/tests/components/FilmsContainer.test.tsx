@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 import React from 'react';
-import FilmsContainer from 'src/components/FilmsContainer/index';
-import { render, cleanup, screen } from '../test.utils';
 import { ERROR_MESSAGE, FILMS_PER_PAGE } from '@constants/index';
+import FilmsContainer from 'src/components/FilmsContainer/index';
+
+import { cleanup, render, screen } from '../test.utils';
 const hookMocked = jest.fn();
 jest.mock('@services/FilmService', () => ({
     useFetchAllFilmsQuery: () => hookMocked(),

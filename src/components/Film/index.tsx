@@ -1,4 +1,9 @@
 import React, { useMemo, useState } from 'react';
+import { IFilmComponent } from '@customTypes/index';
+import { useAppSelector } from '@hooks/redux';
+
+import Modal from '../Modal/index';
+
 import {
     Author,
     AuthorYear,
@@ -10,9 +15,6 @@ import {
     Wrapper,
     Year,
 } from './styled';
-import { useAppSelector } from '@hooks/redux';
-import Modal from '../Modal/index';
-import { IFilmComponent } from '@customTypes/index';
 const images = require.context('@assets/images', true);
 
 const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video, id }) => {

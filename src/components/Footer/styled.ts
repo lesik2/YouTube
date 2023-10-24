@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { MAX_WIDTH_MOBILE } from '../../constants/index';
 export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     width: 100%;

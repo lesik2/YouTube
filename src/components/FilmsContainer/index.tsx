@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Wrapper, FilmWrapper, Error } from './styled';
-import { useFetchAllFilmsQuery } from '@services/FilmService';
-import Film from '../Film/index';
-import SkeletonLoader from '../SkeletonLoader';
+import { DEFAULT_POSTER, ERROR_MESSAGE, FILMS_PER_PAGE, INCOGNITO_PERSON, SRC } from '@constants/index';
 import { useAppSelector } from '@hooks/redux';
-import InfinityLoader from '../InfinityLoader/index';
-import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE, ERROR_MESSAGE, INCOGNITO_PERSON } from '@constants/index';
+import { useFetchAllFilmsQuery } from '@services/FilmService';
+
 import { IFilm } from '../../models/IFilm';
+import Film from '../Film/index';
+import InfinityLoader from '../InfinityLoader/index';
 import NotFound from '../NotFound';
+import SkeletonLoader from '../SkeletonLoader';
+
+import { Button, Error, FilmWrapper, Wrapper } from './styled';
 
 const FilmsContainer = () => {
     const [limit, setLimit] = useState(FILMS_PER_PAGE);

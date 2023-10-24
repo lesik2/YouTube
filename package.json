@@ -7,7 +7,7 @@
         "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
         "build": "webpack --config ./webpack.config.js --env mode=prod",
         "lint": "eslint --ext .ts,.tsx",
-        "lint:fix": "npm run lint -- --fix",
+        "lint:fix": "npx eslint . --fix",
         "prepare": "husky install",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
         "test": "jest",

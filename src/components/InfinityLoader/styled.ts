@@ -1,5 +1,6 @@
-import { MAX_WIDTH_LAPTOP } from '../../constants/index';
 import styled, { keyframes } from 'styled-components';
+
+import { MAX_WIDTH_LAPTOP } from '../../constants/index';
 
 const spin = keyframes`
   100%{

@@ -1,5 +1,6 @@
-import { MAX_WIDTH_TABLET } from '../../constants/index';
 import styled from 'styled-components';
+
+import { MAX_WIDTH_TABLET } from '../../constants/index';
 
 export const Wrapper = styled.div<{ $isOpen?: boolean }>`
     @media (max-width: ${MAX_WIDTH_TABLET}) {

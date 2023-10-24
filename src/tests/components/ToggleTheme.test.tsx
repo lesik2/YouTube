@@ -1,9 +1,10 @@
 import React from 'react';
-import ToggleTheme from 'src/components/ToggleTheme/index';
-import userEvent from '@testing-library/user-event';
-import { render, cleanup, screen } from '../test.utils';
 import * as Hooks from '@hooks/redux';
 import * as actions from '@store/reducers/ThemeSlice';
+import userEvent from '@testing-library/user-event';
+import ToggleTheme from 'src/components/ToggleTheme/index';
+
+import { cleanup, render, screen } from '../test.utils';
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 afterEach(() => {
     cleanup();

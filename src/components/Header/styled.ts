@@ -1,5 +1,6 @@
-import { MAX_WIDTH_TABLET } from '../../constants/index';
 import styled from 'styled-components';
+
+import { MAX_WIDTH_TABLET } from '../../constants/index';
 export const Wrapper = styled.section`
     padding: 0px 8px;
     display: flex;

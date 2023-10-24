@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from '@components/Header/index';
 import Categories from '@components/Categories/index';
 import FilmsContainer from '@components/FilmsContainer/index';
 import Footer from '@components/Footer/index';
+import Header from '@components/Header/index';
 import { useAppSelector } from '@hooks/redux';
+
 import { Wrapper } from './styled';
 
 const MainPage: React.FC = () => {

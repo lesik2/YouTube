@@ -1,4 +1,10 @@
 import React from 'react';
+import facebook from '@assets/icons/facebook.svg';
+import instagram from '@assets/icons/instagram.svg';
+import linkedin from '@assets/icons/linkedIn.svg';
+import twitter from '@assets/icons/twitter.svg';
+import { useAppSelector } from '@hooks/redux';
+
 import {
     FooterText,
     ImageWrapper,
@@ -9,11 +15,6 @@ import {
     WrapperLinks,
     WrapperText,
 } from './styled';
-import facebook from '@assets/icons/facebook.svg';
-import twitter from '@assets/icons/twitter.svg';
-import instagram from '@assets/icons/instagram.svg';
-import linkedin from '@assets/icons/linkedIn.svg';
-import { useAppSelector } from '@hooks/redux';
 
 const Footer = () => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);

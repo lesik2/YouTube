@@ -1,6 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ENGLISH_PATTERN } from '../constants';
 import { IParams, IResultCategories, IResultFilms, IResultNames } from '@customTypes/index';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+import { ENGLISH_PATTERN } from '../constants';
 
 const API_KEY = 'KHVMS0C-5YK4Y7B-HZX76XJ-B84S1A7';
 export const FilmAPI = createApi({

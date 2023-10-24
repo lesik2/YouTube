@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { Error, ImageWrapper, Wrapper } from './styled';
 import error from '@assets/icons/error.svg';
 import { ERROR_BOUNDARY_MESSAGE } from '@constants/index';
+
+import { Error, ImageWrapper, Wrapper } from './styled';
 interface Props {
     children?: ReactNode;
 }
