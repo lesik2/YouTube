@@ -1,8 +1,6 @@
+import { ThemeState } from '@customTypes/index';
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface ThemeState {
-    isDarkTheme: boolean;
-}
 const initialState: ThemeState = {
     isDarkTheme: JSON.parse(localStorage.getItem('theme') ?? 'false'),
 };

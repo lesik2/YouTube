@@ -3,7 +3,7 @@ import { AllFilmsLink, CategoryLink, Wrapper, Error } from './styled';
 import { useFetchAllCategoriesQuery } from '@services/FilmService';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
-import { ERROR_MESSAGE } from '@//constants';
+import { ERROR_MESSAGE } from '@constants/index';
 
 const Categories: React.FC = () => {
     const { data, error, isLoading } = useFetchAllCategoriesQuery('genre');

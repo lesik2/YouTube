@@ -45,6 +45,7 @@ const baseConfig = {
             '@constants': path.resolve(__dirname, 'src/constants/'),
             '@models': path.resolve(__dirname, 'src/models/'),
             '@components': path.resolve(__dirname, 'src/components/'),
+            '@customTypes': path.resolve(__dirname, 'src/types/'),
         },
     },
     plugins: [

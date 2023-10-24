@@ -8,6 +8,7 @@
         "allowJs": false,
         "jsx": "react",
         "moduleResolution": "node",
+        "strict": true,
         "rootDir": "../",
         "outDir": "dist",
         "noImplicitReturns": true,
@@ -27,6 +28,7 @@
           "@constants/*": ["src/constants/*"],
           "@models/*": ["src/models/*"],
           "@components/*": ["src/components/*"],
+          "@customTypes/*": ["src/types/*"],
         }
     },
     "include": ["src","custom.d.ts","cypress",],

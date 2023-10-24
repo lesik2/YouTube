@@ -65,9 +65,11 @@ const FilmsContainer = () => {
             {data?.docs.length === 0 && <NotFound />}
             {error && <Error>{ERROR_MESSAGE}</Error>}
             {isFetching && limit !== FILMS_PER_PAGE && <InfinityLoader />}
-            <Button data-cy="button-films" onClick={handleClick}>
-                Show More
-            </Button>
+            {data && data?.docs.length !== 0 && data.total > FILMS_PER_PAGE && (
+                <Button data-cy="button-films" onClick={handleClick}>
+                    Show More
+                </Button>
+            )}
         </Wrapper>
     );
 };

@@ -1,10 +1,7 @@
 import React from 'react';
 import { Line, Wrapper } from './styled';
 import { useAppSelector } from '@hooks/redux';
-interface IBurgerMenu {
-    isOpen: boolean;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { IBurgerMenu } from '@customTypes/index';
 const BurgerMenu: React.FC<IBurgerMenu> = ({ isOpen, setIsOpen }) => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const handleClick = () => {

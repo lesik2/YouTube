@@ -1,11 +1,8 @@
 import React from 'react';
 import { Wrapper, Content } from './styled';
 import { useAppSelector } from '@hooks/redux';
-interface IMenu {
-    children: React.ReactNode;
-    isOpen: boolean;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { IMenu } from '@customTypes/index';
+
 const Menu: React.FC<IMenu> = ({ children, isOpen, setIsOpen }) => {
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);
     const closeMenu = () => {

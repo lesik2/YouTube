@@ -3,7 +3,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Error, ImageWrapper, Wrapper } from './styled';
 import error from '@assets/icons/error.svg';
-import { ERROR_BOUNDARY_MESSAGE } from '@//constants';
+import { ERROR_BOUNDARY_MESSAGE } from '@constants/index';
 interface Props {
     children?: ReactNode;
 }

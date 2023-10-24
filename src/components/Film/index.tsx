@@ -12,16 +12,9 @@ import {
 } from './styled';
 import { useAppSelector } from '@hooks/redux';
 import Modal from '../Modal/index';
+import { IFilmComponent } from '@customTypes/index';
 const images = require.context('@assets/images', true);
 
-interface IFilmComponent {
-    image: string;
-    year: number;
-    director: string;
-    title: string;
-    video: string;
-    id: number;
-}
 const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video, id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const isDarkTheme = useAppSelector((state) => state.themeReducer.isDarkTheme);

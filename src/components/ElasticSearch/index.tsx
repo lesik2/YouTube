@@ -3,12 +3,8 @@ import { List, Wrapper } from './styled';
 import { useFetchAllNamesQuery } from '@services/FilmService';
 import { useAppDispatch } from '@hooks/redux';
 import { setSearch, changeCategory } from '@store/reducers/FilterParamsSlice';
-import { useDebounce } from '@//hooks/debounce';
-interface IElasticSearch {
-    value: string;
-    showSearch: boolean;
-    setShowSearch: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { useDebounce } from '@hooks/debounce';
+import { IElasticSearch } from '@customTypes/index';
 const ElasticSearch: React.FC<IElasticSearch> = ({ value, showSearch, setShowSearch }) => {
     const debounced = useDebounce(value);
     const { data } = useFetchAllNamesQuery(debounced, {
