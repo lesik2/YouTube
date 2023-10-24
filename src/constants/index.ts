@@ -10,3 +10,5 @@ export const ERROR_MESSAGE = 'Something went wrong';
 export const NOTHING_FOUND_MESSAGE = 'Nothing was found';
 export const ANOTHER_REQUEST_MESSAGE = 'Try another request';
 export const ERROR_BOUNDARY_MESSAGE = 'There was an error';
+export const ENGLISH_PATTERN = /^[a-zA-Z]+$/;
+export const INCOGNITO_PERSON = 'Incognito';

@@ -33,7 +33,7 @@ const ElasticSearch: React.FC<IElasticSearch> = ({ value, showSearch, setShowSea
                     {data &&
                         data.map((item, index) => (
                             <List data-cy={`${index}-list`} onClick={handleClick} key={index}>
-                                {item.enName}
+                                {item.enName ?? item.name}
                             </List>
                         ))}
                 </Wrapper>

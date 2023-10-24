@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IFilm } from '@models/IFilm';
+import { ENGLISH_PATTERN } from '../constants';
 export interface IParams {
     page: number;
     ['genres.name']: string | undefined;
@@ -16,7 +17,7 @@ export interface IResultCategories {
     slug: string;
 }
 export interface IResultNames {
-    docs: { enName: string }[];
+    docs: { enName: string; name: string }[];
     total: number;
     page: number;
     limit: number;
@@ -38,7 +39,8 @@ export const FilmAPI = createApi({
                 },
                 params: {
                     [param['genres.name'] === undefined ? '' : 'genres.name']: param['genres.name'],
-                    [param.search === '' ? '' : 'enName']: param.search,
+                    [param.search === '' || !ENGLISH_PATTERN.test(param.search) ? '' : 'enName']: param.search,
+                    [param.search === '' || ENGLISH_PATTERN.test(param.search) ? '' : 'name']: param.search,
                     page: param.page,
                     limit: param.limit,
                 },
@@ -53,15 +55,16 @@ export const FilmAPI = createApi({
                 },
             }),
         }),
-        fetchAllNames: build.query<{ enName: string }[], string>({
+        fetchAllNames: build.query<{ enName: string; name: string }[], string>({
             query: (param: string) => ({
-                url: '/v1.3/movie?selectFields=enName&page=1&limit=10',
+                url: '/v1.3/movie?selectFields=enName%20name&page=1&limit=10',
                 headers: {
                     'X-API-KEY': API_KEY,
                     accept: 'application/json',
                 },
                 params: {
-                    enName: param,
+                    [!ENGLISH_PATTERN.test(param) ? '' : 'enName']: param,
+                    [ENGLISH_PATTERN.test(param) ? '' : 'name']: param,
                 },
             }),
             transformResponse: (response: IResultNames) => response.docs,

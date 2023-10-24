@@ -5,7 +5,7 @@ import Film from '../Film/index';
 import SkeletonLoader from '../SkeletonLoader';
 import { useAppSelector } from '@hooks/redux';
 import InfinityLoader from '../InfinityLoader/index';
-import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE, ERROR_MESSAGE } from '@constants/index';
+import { DEFAULT_POSTER, SRC, FILMS_PER_PAGE, ERROR_MESSAGE, INCOGNITO_PERSON } from '@constants/index';
 import { IFilm } from '../../models/IFilm';
 import NotFound from '../NotFound';
 
@@ -55,7 +55,9 @@ const FilmsContainer = () => {
                             title={film.enName ?? film.name}
                             image={film.poster === undefined ? DEFAULT_POSTER : film.poster.url}
                             year={film.year}
-                            director={film.persons[0].enName ?? film.persons[0].name}
+                            director={
+                                !film.persons.length ? INCOGNITO_PERSON : film.persons[0].enName ?? film.persons[0].name
+                            }
                             video={getSrcForVideo(film)}
                         />
                     ))}
