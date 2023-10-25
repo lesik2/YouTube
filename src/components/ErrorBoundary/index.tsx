@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import error from '@assets/icons/error.svg';
-import { ERROR_BOUNDARY_MESSAGE } from '@constants/index';
+import { MESSAGES } from '@constants/index';
 
 import { Error, ImageWrapper, Wrapper } from './styled';
 interface Props {
@@ -33,7 +33,7 @@ class ErrorBoundary extends Component<Props, State> {
                     <ImageWrapper>
                         <img src={error} alt="error image" />
                     </ImageWrapper>
-                    <Error>{ERROR_BOUNDARY_MESSAGE}</Error>
+                    <Error>{MESSAGES.ERROR_BOUNDARY_MESSAGE}</Error>
                 </Wrapper>
             );
         }

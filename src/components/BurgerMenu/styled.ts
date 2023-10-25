@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { MAX_WIDTH_TABLET } from '../../constants/index';
+import { MAX_WIDTH_TABLET, THEME_PROVIDER } from '../../constants/index';
 
 export const Wrapper = styled.div<{ $isOpen?: boolean; $isDarkTheme?: boolean }>`
     display: none;
@@ -12,14 +12,14 @@ export const Wrapper = styled.div<{ $isOpen?: boolean; $isDarkTheme?: boolean }>
     cursor: pointer;
     border-radius: 50%;
     &:hover {
-        background-color: #bfbfbf;
+        background-color: ${THEME_PROVIDER.GRAY};
     }
     &::before {
         content: '';
         position: absolute;
         top: ${(props) => (props.$isOpen ? '10.8px' : '6px')};
         width: 15.5px;
-        background: ${(props) => (props.$isDarkTheme ? '#ffffff' : '#000000')};
+        background: ${(props) => (props.$isDarkTheme ? THEME_PROVIDER.WHITE : THEME_PROVIDER.BLACK)};
         height: 2px;
         border-radius: 1px;
         transition:
@@ -32,7 +32,7 @@ export const Wrapper = styled.div<{ $isOpen?: boolean; $isDarkTheme?: boolean }>
         position: absolute;
         bottom: ${(props) => (props.$isOpen ? '10.8px' : '6px')};
         width: 15.5px;
-        background: ${(props) => (props.$isDarkTheme ? '#ffffff' : '#000000')};
+        background: ${(props) => (props.$isDarkTheme ? THEME_PROVIDER.WHITE : THEME_PROVIDER.BLACK)};
         height: 2px;
         border-radius: 1px;
         transition:
@@ -48,7 +48,7 @@ export const Line = styled.span<{ $isOpen?: boolean; $isDarkTheme?: boolean }>`
     position: absolute;
     top: 10.8px;
     width: 15.5px;
-    background: ${(props) => (props.$isDarkTheme ? '#ffffff' : '#000000')};
+    background: ${(props) => (props.$isDarkTheme ? THEME_PROVIDER.WHITE : THEME_PROVIDER.BLACK)};
     height: 2px;
     border-radius: 1px;
     transition: transform 0.3s;

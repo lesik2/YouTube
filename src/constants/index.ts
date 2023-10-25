@@ -14,13 +14,32 @@ export const DEFAULT_POSTER = 'https://st.kp.yandex.net/images/film_big/838.jpg'
 export const FILMS_PER_PAGE = 16;
 export const LINKS_AMOUNT = 7;
 export const ID_OF_FILM = '535341-image-film';
-export const ERROR_MESSAGE = 'Something went wrong';
-export const NOTHING_FOUND_MESSAGE = 'Nothing was found';
-export const ANOTHER_REQUEST_MESSAGE = 'Try another request';
-export const ERROR_BOUNDARY_MESSAGE = 'There was an error';
 export const ENGLISH_PATTERN = /^[a-zA-Z]+$/;
-export const INCOGNITO_PERSON = 'Incognito';
 
+export enum MESSAGES {
+    ERROR_BOUNDARY_MESSAGE = 'There was an error',
+    ANOTHER_REQUEST_MESSAGE = 'Try another request',
+    NOTHING_FOUND_MESSAGE = 'Nothing was found',
+    ERROR_MESSAGE = 'Something went wrong',
+}
+export enum STATIC_INFO {
+    INCOGNITO_PERSON = 'Incognito',
+    FOOTER_NAME_OF_COMPANY = 'Modsen company',
+    FOOTER_CONTACT = 'About Press Copyright Contact us Creators Advertise Developers',
+    FOOTER_SAFETY = 'TermsPrivacyPolicy & Safety',
+    FOOTER_YOUTUBE = 'How YouTube works',
+    FOOTER_FEATURES = 'Test new features',
+    BUTTON_SHOW_MORE = ' Show More',
+    LINK_ALL = 'All',
+}
+export enum THEME_PROVIDER {
+    WHITE = '#ffffff',
+    WHITE_DARK = '#f8f8f8',
+    BLACK = '#000000',
+    GRAY = '#bfbfbf',
+    GRAY_LIGHT = '#cccccc',
+    GRAY_LIGHTER = '#F0F0F0',
+}
 export const AVATAR_ICONS = {
     AVATAR1: Avatar1,
     AVATAR2: Avatar2,

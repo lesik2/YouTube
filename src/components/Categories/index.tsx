@@ -1,5 +1,5 @@
 import React from 'react';
-import { ERROR_MESSAGE } from '@constants/index';
+import { MESSAGES, STATIC_INFO } from '@constants/index';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { useFetchAllCategoriesQuery } from '@services/FilmService';
 import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
@@ -24,7 +24,7 @@ const Categories: React.FC = () => {
                 Array(7)
                     .fill('')
                     .map((item, index) => <CategoryLink key={index}>{item}</CategoryLink>)}
-            {error && <Error>{ERROR_MESSAGE}</Error>}
+            {error && <Error>{MESSAGES.ERROR_MESSAGE}</Error>}
             {data && (
                 <>
                     <AllFilmsLink
@@ -32,7 +32,7 @@ const Categories: React.FC = () => {
                         data-cy="all-link"
                         $active={categoryState === 'All'}
                         onClick={handleClick}>
-                        All
+                        {STATIC_INFO.LINK_ALL}
                     </AllFilmsLink>
                     {data?.slice(0, 6).map((category, index) => (
                         <CategoryLink

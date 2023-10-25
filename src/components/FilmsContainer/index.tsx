@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DEFAULT_POSTER, ERROR_MESSAGE, FILMS_PER_PAGE, INCOGNITO_PERSON, SRC } from '@constants/index';
+import { DEFAULT_POSTER, FILMS_PER_PAGE, MESSAGES, SRC, STATIC_INFO } from '@constants/index';
 import { useAppSelector } from '@hooks/redux';
 import { useFetchAllFilmsQuery } from '@services/FilmService';
 
@@ -58,18 +58,20 @@ const FilmsContainer = () => {
                             image={film.poster === undefined ? DEFAULT_POSTER : film.poster.url}
                             year={film.year}
                             director={
-                                !film.persons.length ? INCOGNITO_PERSON : film.persons[0].enName ?? film.persons[0].name
+                                !film.persons.length
+                                    ? STATIC_INFO.INCOGNITO_PERSON
+                                    : film.persons[0].enName ?? film.persons[0].name
                             }
                             video={getSrcForVideo(film)}
                         />
                     ))}
             </FilmWrapper>
             {data?.docs.length === 0 && <NotFound />}
-            {error && <Error>{ERROR_MESSAGE}</Error>}
+            {error && <Error>{MESSAGES.ERROR_MESSAGE}</Error>}
             {isFetching && limit !== FILMS_PER_PAGE && <InfinityLoader />}
             {data && data?.docs.length !== 0 && data.total > FILMS_PER_PAGE && (
                 <Button data-cy="button-films" onClick={handleClick}>
-                    Show More
+                    {STATIC_INFO.BUTTON_SHOW_MORE}
                 </Button>
             )}
         </Wrapper>

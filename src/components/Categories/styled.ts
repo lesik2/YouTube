@@ -1,5 +1,5 @@
+import { THEME_PROVIDER } from '@constants/index';
 import styled from 'styled-components';
-
 export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     height: 54px;
     display: flex;
@@ -7,8 +7,8 @@ export const Wrapper = styled.section<{ $DarkTheme?: boolean }>`
     justify-content: center;
     padding-left: 130px;
     gap: 10px;
-    border-top: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
-    border-bottom: 1px solid ${(props) => (props.$DarkTheme ? '#ffffff' : 'rgba(0, 0, 0, 0.19)')};
+    border-top: 1px solid ${(props) => (props.$DarkTheme ? THEME_PROVIDER.WHITE : 'rgba(0, 0, 0, 0.19)')};
+    border-bottom: 1px solid ${(props) => (props.$DarkTheme ? THEME_PROVIDER.WHITE : 'rgba(0, 0, 0, 0.19)')};
     @media (max-width: 870px) {
         padding-left: 0px;
     }
@@ -39,12 +39,12 @@ export const AllFilmsLink = styled.a<{ $active?: boolean }>`
     font-style: normal;
     line-height: normal;
     user-select: none;
-    background-color: ${(props) => (props.$active ? '#000000' : '#F0F0F0')};
-    color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+    background-color: ${(props) => (props.$active ? THEME_PROVIDER.BLACK : THEME_PROVIDER.GRAY_LIGHTER)};
+    color: ${(props) => (props.$active ? THEME_PROVIDER.WHITE_DARK : THEME_PROVIDER.BLACK)};
     &:hover {
-        color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+        color: ${(props) => (props.$active ? THEME_PROVIDER.WHITE_DARK : THEME_PROVIDER.BLACK)};
         text-decoration: none;
-        background-color: ${(props) => (props.$active ? '#000000' : '#cccccc')};
+        background-color: ${(props) => (props.$active ? THEME_PROVIDER.BLACK : THEME_PROVIDER.GRAY_LIGHT)};
         transition: background 0.2s;
     }
 `;
@@ -62,13 +62,13 @@ export const CategoryLink = styled.a<{ $active?: boolean }>`
     width: 91px;
     height: 30px;
     user-select: none;
-    background-color: ${(props) => (props.$active ? '#000000' : '#F0F0F0')};
-    color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+    background-color: ${(props) => (props.$active ? THEME_PROVIDER.BLACK : THEME_PROVIDER.GRAY_LIGHTER)};
+    color: ${(props) => (props.$active ? THEME_PROVIDER.WHITE_DARK : THEME_PROVIDER.BLACK)};
     transition: background 0.2s;
     &:hover {
-        color: ${(props) => (props.$active ? '#f8f8f8' : '#000')};
+        color: ${(props) => (props.$active ? THEME_PROVIDER.WHITE_DARK : THEME_PROVIDER.BLACK)};
         text-decoration: none;
-        background-color: ${(props) => (props.$active ? '#000000' : '#cccccc')};
+        background-color: ${(props) => (props.$active ? THEME_PROVIDER.BLACK : THEME_PROVIDER.GRAY_LIGHT)};
     }
 `;
 export const Error = styled.h1`

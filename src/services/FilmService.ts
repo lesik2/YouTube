@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { ENGLISH_PATTERN } from '../constants';
 
-const API_KEY = 'KHVMS0C-5YK4Y7B-HZX76XJ-B84S1A7';
+const API_KEY = 'EZ2XK87-S3Z47VY-J7XMKBT-934BD4C';
 export const FilmAPI = createApi({
     reducerPath: 'FilmAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.kinopoisk.dev' }),

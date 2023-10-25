@@ -3,6 +3,7 @@ import facebook from '@assets/icons/facebook.svg';
 import instagram from '@assets/icons/instagram.svg';
 import linkedin from '@assets/icons/linkedIn.svg';
 import twitter from '@assets/icons/twitter.svg';
+import { STATIC_INFO } from '@constants/index';
 import { useAppSelector } from '@hooks/redux';
 
 import {
@@ -23,13 +24,13 @@ const Footer = () => {
             <WrapperInfo>
                 <WrapperText>
                     <TextLeft $DarkTheme={isDarkTheme}>
-                        TermsPrivacyPolicy & Safety
-                        <br /> How YouTube works
-                        <br /> Test new features
+                        {STATIC_INFO.FOOTER_SAFETY}
+                        <br />
+                        {STATIC_INFO.FOOTER_YOUTUBE}
+                        <br />
+                        {STATIC_INFO.FOOTER_FEATURES}
                     </TextLeft>
-                    <TextRight $DarkTheme={isDarkTheme}>
-                        About Press Copyright Contact us Creators Advertise Developers
-                    </TextRight>
+                    <TextRight $DarkTheme={isDarkTheme}>{STATIC_INFO.FOOTER_CONTACT}</TextRight>
                 </WrapperText>
                 <WrapperLinks>
                     <ImageWrapper>
@@ -53,7 +54,9 @@ const Footer = () => {
                         </a>
                     </ImageWrapper>
                 </WrapperLinks>
-                <FooterText $DarkTheme={isDarkTheme}>2023 Modsen company</FooterText>
+                <FooterText $DarkTheme={isDarkTheme}>
+                    {new Date().getFullYear()} {STATIC_INFO.FOOTER_NAME_OF_COMPANY}
+                </FooterText>
             </WrapperInfo>
         </Wrapper>
     );
