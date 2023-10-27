@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { ERROR_MESSAGE, FILMS_PER_PAGE } from '@constants/index';
+import { FILMS_PER_PAGE, MESSAGES } from '@constants/index';
 import FilmsContainer from 'src/components/FilmsContainer/index';
 
 import { cleanup, render, screen } from '../test.utils';
@@ -76,7 +76,7 @@ describe('FilmsContainer component', () => {
         });
         render(<FilmsContainer />);
         const error = screen.getByRole('heading');
-        expect(error).toHaveTextContent(ERROR_MESSAGE);
+        expect(error).toHaveTextContent(MESSAGES.ERROR_MESSAGE);
     });
     test('should show skeleton loader while pending', () => {
         hookMocked.mockReturnValueOnce({

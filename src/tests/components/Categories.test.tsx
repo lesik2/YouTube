@@ -1,5 +1,5 @@
 import React from 'react';
-import { ERROR_MESSAGE, LINKS_AMOUNT } from '@constants/index';
+import { LINKS_AMOUNT, MESSAGES } from '@constants/index';
 import * as Hooks from '@hooks/redux';
 import * as actions from '@store/reducers/FilterParamsSlice';
 import userEvent from '@testing-library/user-event';
@@ -66,7 +66,7 @@ describe('Categories component', () => {
         });
         render(<Categories />);
         const error = screen.getByRole('heading');
-        expect(error).toHaveTextContent(ERROR_MESSAGE);
+        expect(error).toHaveTextContent(MESSAGES.ERROR_MESSAGE);
     });
     test('should show skeleton loader while pending', () => {
         hookMocked.mockReturnValueOnce({

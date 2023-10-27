@@ -39,4 +39,10 @@ const ElasticSearch: React.FC<IElasticSearch> = ({ value, showSearch, setShowSea
     );
 };
 
-export default ElasticSearch;
+export default React.memo(ElasticSearch, (prevProps, nextProps) => {
+    if (nextProps.value.length >= 3) {
+        return false;
+    } else {
+        return true;
+    }
+});

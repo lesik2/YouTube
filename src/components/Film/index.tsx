@@ -50,4 +50,4 @@ const Film: React.FC<IFilmComponent> = ({ image, year, director, title, video, i
         </Wrapper>
     );
 };
-export default Film;
+export default React.memo(Film);
