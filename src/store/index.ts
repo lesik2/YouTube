@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { FilmAPI } from '@services/FilmService';
 
-import filterParamsReducer from './reducers/FilterParamsSlice';
-import themeReducer from './reducers/ThemeSlice';
+import { FilmAPI } from '@//services/filmService';
+
+import filterParamsReducer from './reducers/filterParamsSlice';
+import themeReducer from './reducers/themeSlice';
 
 const rootReducer = combineReducers({
     themeReducer,

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { DEFAULT_POSTER, FILMS_PER_PAGE, MESSAGES, SRC, STATIC_INFO } from '@constants/index';
 import { useAppSelector } from '@hooks/redux';
-import { useFetchAllFilmsQuery } from '@services/FilmService';
 
-import { IFilm } from '../../models/IFilm';
+import { useFetchAllFilmsQuery } from '@//services/filmService';
+
+import { IFilm } from '../../models/iFilm';
 import Film from '../Film/index';
 import InfinityLoader from '../InfinityLoader/index';
 import NotFound from '../NotFound';

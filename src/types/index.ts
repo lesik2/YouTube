@@ -1,5 +1,6 @@
 import React from 'react';
-import { IFilm } from '@models/IFilm';
+
+import { IFilm } from '@//models/iFilm';
 
 export interface IBurgerMenu {
     isOpen: boolean;

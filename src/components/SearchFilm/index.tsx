@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import searchIcon from '@assets/icons/searchIcon.svg';
 import { useAppDispatch } from '@hooks/redux';
-import { changeCategory, setSearch } from '@store/reducers/FilterParamsSlice';
+
+import { changeCategory, setSearch } from '@//store/reducers/filterParamsSlice';
 
 import ElasticSearch from '../ElasticSearch';
 

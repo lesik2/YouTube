@@ -4,8 +4,8 @@ import { combineReducers, configureStore, EmptyObject, EnhancedStore, PreloadedS
 import { render as rtlRender, RenderOptions } from '@testing-library/react';
 
 import type { RootState } from '../store/index';
-import FilterParamsSlice from '../store/reducers/FilterParamsSlice';
-import ThemeSlice from '../store/reducers/ThemeSlice';
+import FilterParamsSlice from '../store/reducers/filterParamsSlice';
+import ThemeSlice from '../store/reducers/themeSlice';
 
 type ReducerTypes = Pick<RootState, 'themeReducer' | 'filterParamsReducer'>;
 type TStore = EnhancedStore<ReducerTypes>;
