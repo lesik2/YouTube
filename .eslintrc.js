@@ -7,6 +7,8 @@ module.exports = {
         'eslint:recommended',
         'plugin:prettier/recommended',
         'plugin:cypress/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:react/jsx-runtime',
     ],
     plugins: ['simple-import-sort'],
     parserOptions: {
@@ -17,7 +19,6 @@ module.exports = {
         },
     },
     rules: {
-        'react/react-in-jsx-scope': 0,
         'no-debugger': 'off',
         'no-console': 'warn',
         '@typescript-eslint/no-explicit-any': 'error',
@@ -40,11 +41,18 @@ module.exports = {
             },
         ],
         'simple-import-sort/exports': 'error',
+        'react/prop-types': [2],
+        'react/require-default-props': [2],
+        'react/no-array-index-key': 'error',
+        'react/jsx-uses-react': 'error',
+        'react/jsx-uses-vars': 'error',
+        'react/display-name': ['error'],
     },
     env: {
         browser: true,
         es2021: true,
         jest: true,
+        node: true,
     },
     settings: {
         react: {

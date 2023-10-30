@@ -1,8 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { DEFAULT_POSTER, FILMS_PER_PAGE, MESSAGES, SRC, STATIC_INFO } from '@constants/index';
 import { useAppSelector } from '@hooks/redux';
-
-import { useFetchAllFilmsQuery } from '@//services/filmService';
+import { useFetchAllFilmsQuery } from '@services/filmService';
 
 import { IFilm } from '../../models/iFilm';
 import Film from '../Film/index';
@@ -48,6 +48,7 @@ const FilmsContainer = () => {
                     limit === FILMS_PER_PAGE &&
                     Array(FILMS_PER_PAGE)
                         .fill('')
+                        // eslint-disable-next-line react/no-array-index-key
                         .map((item, index) => <SkeletonLoader key={index} />)}
                 {data &&
                     data.docs.map((film, index) => (
@@ -70,7 +71,7 @@ const FilmsContainer = () => {
             {data?.docs.length === 0 && <NotFound />}
             {error && <Error>{MESSAGES.ERROR_MESSAGE}</Error>}
             {isFetching && limit !== FILMS_PER_PAGE && <InfinityLoader />}
-            {data && data?.docs.length !== 0 && data.total > FILMS_PER_PAGE && (
+            {data && data?.docs.length !== 0 && data.total > limit && (
                 <Button data-cy="button-films" onClick={handleClick}>
                     {STATIC_INFO.BUTTON_SHOW_MORE}
                 </Button>

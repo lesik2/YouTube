@@ -5,6 +5,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const baseConfig = {
     entry: path.join(__dirname, 'src', 'index.jsx'),
     output: {
@@ -57,6 +58,7 @@ const baseConfig = {
         new EslintPlugin({
             extensions: 'ts',
         }),
+        new Dotenv(),
     ],
 };
 module.exports = ({ mode }) => {

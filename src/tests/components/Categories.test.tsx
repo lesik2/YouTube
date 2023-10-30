@@ -1,10 +1,9 @@
 import React from 'react';
 import { LINKS_AMOUNT, MESSAGES } from '@constants/index';
 import * as Hooks from '@hooks/redux';
+import * as actions from '@store/reducers/filterParamsSlice';
 import userEvent from '@testing-library/user-event';
 import Categories from 'src/components/Categories/index';
-
-import * as actions from '@//store/reducers/filterParamsSlice';
 
 import { cleanup, render, screen } from '../test.utils';
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import { MESSAGES, STATIC_INFO } from '@constants/index';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
-
-import { useFetchAllCategoriesQuery } from '@//services/filmService';
-import { changeCategory, setSearch } from '@//store/reducers/filterParamsSlice';
+import { useFetchAllCategoriesQuery } from '@services/filmService';
+import { changeCategory, setSearch } from '@store/reducers/filterParamsSlice';
 
 import { AllFilmsLink, CategoryLink, Error, Wrapper } from './styled';
 

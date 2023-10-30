@@ -17,7 +17,7 @@ const ElasticSearch: React.FC<IElasticSearch> = ({ value, showSearch, setShowSea
         if (data) {
             setShowSearch(debounced.length >= 3 && data.length > 0);
         }
-    }, [debounced, data]);
+    }, [debounced, data, setShowSearch]);
     const dispatch = useAppDispatch();
     const handleClick = () => {
         dispatch(setSearch(value));
@@ -30,7 +30,7 @@ const ElasticSearch: React.FC<IElasticSearch> = ({ value, showSearch, setShowSea
                 <Wrapper data-cy="elastic-search">
                     {data &&
                         data.map((item, index) => (
-                            <List data-cy={`${index}-list`} onClick={handleClick} key={index}>
+                            <List data-cy={`${index}-list`} onClick={handleClick} key={item.name ?? item.enName}>
                                 {item.enName ?? item.name}
                             </List>
                         ))}
