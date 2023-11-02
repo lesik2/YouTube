@@ -17,10 +17,5 @@
         [
           "@babel/preset-typescript"
         ]
-    ],
-    "env": {
-      "test": {
-        "plugins": ["transform-require-context"]
-      }
-    }
+    ]
 }

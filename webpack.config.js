@@ -10,6 +10,9 @@ const baseConfig = {
     entry: path.join(__dirname, 'src', 'index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
+        filename: '[name][contenthash].js',
+        clean: true,
+        assetModuleFilename: '[name][ext]',
     },
     mode: 'development',
     module: {
@@ -31,6 +34,7 @@ const baseConfig = {
             },
             {
                 test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
                 loader: 'ts-loader',
             },
         ],
