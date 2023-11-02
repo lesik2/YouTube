@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { MESSAGES, STATIC_INFO } from '@constants/index';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';

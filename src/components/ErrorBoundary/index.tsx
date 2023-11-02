@@ -6,6 +6,7 @@ import { MESSAGES } from '@constants/index';
 
 import { Error, ImageWrapper, Wrapper } from './styled';
 interface Props {
+    // eslint-disable-next-line react/require-default-props
     children?: ReactNode;
 }
 
